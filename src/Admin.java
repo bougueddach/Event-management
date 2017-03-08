@@ -54,4 +54,21 @@ public class Admin {
 		throw new UnsupportedOperationException();
 	}
 
+    public String getIdA() {
+        return idA;
+    }
+
+    public String getMdpA() {
+        return mdpA;
+    }
+
+    public void setIdA(String idA) {
+        this.idA = idA;
+    }
+
+    public void setMdpA(String mdpA) {
+        this.mdpA = mdpA;
+    }
+        
+
 }

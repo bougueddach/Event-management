@@ -55,4 +55,37 @@ public class Employe {
 		throw new UnsupportedOperationException();
 	}
 
+    public int getIdE() {
+        return idE;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public int getMdpE() {
+        return mdpE;
+    }
+
+    public void setIdE(int idE) {
+        this.idE = idE;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setMdpE(int mdpE) {
+        this.mdpE = mdpE;
+    }
+        
+
 }
