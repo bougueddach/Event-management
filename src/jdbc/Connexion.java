@@ -58,7 +58,7 @@ public class Connexion {
         }
         catch(SQLException ex) {
             JOptionPane.showMessageDialog(null ,"Pb dans la requete d'ajout de l'employe !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
-            JOptionPane.showMessageDialog(null ,"Probléme d'ajout de département  !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null ,"Probléme d'ajout d'employe  !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
         }
     }
     
