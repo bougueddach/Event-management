@@ -21,7 +21,9 @@ public class EventManagement {
 //        con.AddDept("Finance");
 //        con.AddDept("RH");
 //        con.AddDept("RH");
-        con.AddEmploye("uygerzh56" , "lotfi", "sara", "omar", 2);
+        con.AddEmploye("uygerzh56" , "chef", "anass", "omar", 2);
+        
+        con.DeleteDept("RH");
     }
     
 }
