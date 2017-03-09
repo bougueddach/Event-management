@@ -18,9 +18,10 @@ public class EventManagement {
     public static void main(String[] args) {
         // TODO code application logic here
         Connexion con  = new Connexion (); 
-        con.AddDept("Finance");
-        con.AddDept("RH");
-        con.AddDept("RH");
+//        con.AddDept("Finance");
+//        con.AddDept("RH");
+//        con.AddDept("RH");
+        con.AddEmploye("uygerzh56" , "lotfi", "sara", "omar", 2);
     }
     
 }

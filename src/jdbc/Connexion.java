@@ -23,10 +23,10 @@ public class Connexion {
     
     public Connexion(){
         jdbc = new JDBC();
-        jdbc.setURL("jdbc:mysql://localhost:3306/events");
+        jdbc.setURL("jdbc:mysql://localhost:8889/events");
         jdbc.setPilote("com.mysql.jdbc.Driver");
         jdbc.setLogin("root");
-        jdbc.setPasswd("");
+        jdbc.setPasswd("root");
         jdbc.ToConnect();
         Maconnexion = jdbc.getConnexion();
         }
@@ -44,7 +44,20 @@ public class Connexion {
         }
         catch(SQLException ex)
         {
-            JOptionPane.showMessageDialog(null ,"Pb dans la requete d'ajout Filiere !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null ,"Pb dans la requete d'ajout de département !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    public void AddEmploye(String pwd,String poste, String nom, String prenom, int Id )
+    {
+    
+        Statement St;
+        ResultSet Rs = null ;
+        try{
+            St=Maconnexion.createStatement();
+            St.executeUpdate("insert into employe values (NULL , '"+pwd+"' , '"+poste+"' , '"+nom+"' , '"+prenom+"' , "+Id+" ); ");
+        }
+        catch(SQLException ex) {
+            JOptionPane.showMessageDialog(null ,"Pb dans la requete d'ajout de l'employe !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
         }
     }
     
