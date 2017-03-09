@@ -23,10 +23,10 @@ public class Connexion {
     
     public Connexion(){
         jdbc = new JDBC();
-        jdbc.setURL("jdbc:mysql://localhost:8889/events");
+        jdbc.setURL("jdbc:mysql://localhost:3306/events");
         jdbc.setPilote("com.mysql.jdbc.Driver");
         jdbc.setLogin("root");
-        jdbc.setPasswd("root");
+        jdbc.setPasswd("");
         jdbc.ToConnect();
         Maconnexion = jdbc.getConnexion();
         }
@@ -99,11 +99,11 @@ public class Connexion {
         Statement St;
         ResultSet Rs = null ;
         try{
-        St=Maconnexion.createStatement();       
-            Rs=null;
+        St=Maconnexion.createStatement(); 
+           
             Rs=St.executeQuery("select * from employe where ID='"+id+"'");
             if(Rs==null) {JOptionPane.showMessageDialog(null, "L'employé n'éxiste pas ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );}
-            else{St.executeUpdate("update employe set Poste='"+poste+"' Nom='"+N+"' Prenom='"+P+"'IDdept='"+idD+"' where ID='"+id+"'");}} 
+            else{St.executeUpdate("update employe set Poste='"+poste+"' , Nom='"+N+"', Prenom='"+P+"', IDdept='"+idD+"' where ID='"+id+"';" );}} 
         catch(SQLException ex)
         {
             JOptionPane.showMessageDialog(null ,"Probléme de modification de l'employé  !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);

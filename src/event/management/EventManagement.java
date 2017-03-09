@@ -21,9 +21,10 @@ public class EventManagement {
 //        con.AddDept("Finance");
 //        con.AddDept("RH");
 //        con.AddDept("RH");
-        con.AddEmploye("uygerzh56" , "chef", "anass", "omar", 2);
+        //con.AddEmploye("uygerzh56" , "chef", "anass", "omar", 1);
+        //con.UpdateEmp(14, "hhh", "Nada","L",1);
+        //con.DeleteEmp(14);
         
-        con.DeleteDept("RH");
     }
     
 }
