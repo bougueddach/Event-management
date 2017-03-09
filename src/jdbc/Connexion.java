@@ -90,7 +90,7 @@ public class Connexion {
             Rs=null;
             Rs=St.executeQuery("select * from employe where ID='"+id+"'");
             if(Rs==null) {JOptionPane.showMessageDialog(null, "L'employé n'éxiste pas ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );}
-            else{St.executeUpdate("update employe set Poste='"+poste+"' Nom='"+N+"' Prenom='"+P+"'IDdept='"+idD+"'");}} 
+            else{St.executeUpdate("update employe set Poste='"+poste+"' Nom='"+N+"' Prenom='"+P+"'IDdept='"+idD+"' where ID='"+id+"'");}} 
         catch(SQLException ex)
         {
             JOptionPane.showMessageDialog(null ,"Probléme de modification de l'employé  !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
