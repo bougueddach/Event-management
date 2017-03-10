@@ -166,13 +166,24 @@ public class Employe extends Connexion {
 		
 	}
 
-	/**
-	 * 
-	 * @param E
-	 */
-	public void Modifier(Event E) {
-		// TODO - implement Employe.Modifier
-		throw new UnsupportedOperationException();
-	}
 
+        public void Modifier(int idE , String type, String titre, String theme, String sect, String lieu, String desc,String date ,int idEv ) {
+            Statement St;
+            ResultSet Rs=null;
+            try{
+                St=Maconnexion.createStatement();
+                Rs=St.executeQuery("select * from event where IDEvent ='"+idEv+"' and IDorg='"+idE+"'");
+                if(Rs.first() || idE==0)
+                {
+                    St.executeUpdate("UPDATE event SET  Titre='"+titre+"', Secteur='"+sect+"' , Thème = '"+theme+"', DateEvent= '"+date+"', Lieu='"+lieu+"', Description ='"+desc+"', Type= '"+type+"' WHERE IDEvent ='"+idEv+"'");                    
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null ,"Vous n'avez pas le droit de modifier cet événements  !! ","Warning",JOptionPane.WARNING_MESSAGE);
+                }                     
+                    
+                }catch(SQLException ex){
+                    JOptionPane.showMessageDialog(null ,"Pb dans la requete de modification de l'employe !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+                }
+    }
 }

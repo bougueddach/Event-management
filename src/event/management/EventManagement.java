@@ -24,10 +24,11 @@ public class EventManagement {
         
 
         
-       // Date d=new Date(time);
+        Date d=new Date(time);
         //System.out.print(d);
         //E.Organiser("gala 2016", "divertissement ", "nachat",d , "A3", "xxxxxxxxxx", "fete", 10);
-           E.Annuler(3, 1);
+           //E.Annuler(3, 1);
+           E.Modifier(3, "dkhds", "cdscsd", "sfcsfcs", "dss", "cscs", "cssds", d.toString(), 1);
         
     }
     
