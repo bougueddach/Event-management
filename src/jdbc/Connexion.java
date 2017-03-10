@@ -30,85 +30,9 @@ public class Connexion {
         jdbc.ToConnect();
         Maconnexion = jdbc.getConnexion();
         }
-    
-    public void AddDept(String Dept)
-    {
-    
-        Statement St;
-        ResultSet Rs = null ;
-        try{
-        St=Maconnexion.createStatement();
-        Rs=St.executeQuery("select NomDept from departement where NomDept='"+Dept+"'");
-        if(Rs.next()) {JOptionPane.showMessageDialog(null, "Le département existe déjà ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );}
-        else{St.executeUpdate("insert into departement values (NULL , '"+Dept+"');");}
-        }
-        catch(SQLException ex)
-        {
-            JOptionPane.showMessageDialog(null ,"Pb dans la requete d'ajout de département !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
-        }
+
+    public Connection getMaconnexion() {
+        return Maconnexion;
     }
-    public void AddEmploye(String pwd,String poste, String nom, String prenom, int Id )
-    {
-    
-        Statement St;
-        ResultSet Rs = null ;
-        try{
-            St=Maconnexion.createStatement();
-            St.executeUpdate("insert into employe values (NULL , '"+pwd+"' , '"+poste+"' , '"+nom+"' , '"+prenom+"' , "+Id+" ); ");
-        }
-        catch(SQLException ex) {
-            JOptionPane.showMessageDialog(null ,"Pb dans la requete d'ajout de l'employe !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
-        }
-    }
-    
-    public void DeleteDept(String Dept)
-    {
-    
-        Statement St;
-        ResultSet Rs = null ;
-        try{
-        St=Maconnexion.createStatement();
-        Rs=St.executeQuery("select NomDept from departement where NomDept='"+Dept+"'");
-        if(Rs==null) {JOptionPane.showMessageDialog(null, "Le département n'éxiste pas ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );}
-        else{St.executeUpdate("delete from departement where NomDept='"+Dept+"';");}
-        }
-        catch(SQLException ex)
-        {
-            JOptionPane.showMessageDialog(null ,"Probléme de suppression de département  !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
-        }
-    }
-    
-    public void DeleteEmp(int id)
-    {
-        Statement St;
-        ResultSet Rs = null ;
-        try{
-        St=Maconnexion.createStatement();
-        Rs=St.executeQuery("select * from employe where ID='"+id+"'");
-        if(Rs==null) {JOptionPane.showMessageDialog(null, "L'employé n'éxiste pas ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );}
-        else{St.executeUpdate("delete from employe where ID='"+id+"';");}
-        }
-        catch(SQLException ex)
-        {
-            JOptionPane.showMessageDialog(null ,"Probléme de suppression de l'employé  !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
-        }
-    }
-    
-    public void UpdateEmp(int id , String poste , String N , String P , int idD)
-    {
-        Statement St;
-        ResultSet Rs = null ;
-        try{
-        St=Maconnexion.createStatement(); 
-           
-            Rs=St.executeQuery("select * from employe where ID='"+id+"'");
-            if(Rs==null) {JOptionPane.showMessageDialog(null, "L'employé n'éxiste pas ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );}
-            else{St.executeUpdate("update employe set Poste='"+poste+"' , Nom='"+N+"', Prenom='"+P+"', IDdept='"+idD+"' where ID='"+id+"';" );}} 
-        catch(SQLException ex)
-        {
-            JOptionPane.showMessageDialog(null ,"Probléme de modification de l'employé  !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
-        }
-    }
-    
-    
+      
 }
