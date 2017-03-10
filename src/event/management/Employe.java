@@ -87,19 +87,22 @@ public class Employe extends Connexion {
         ResultSet Rs = null ;
         try{
             St=Maconnexion.createStatement();
-            Rs=St.executeQuery("select * from  events where IDEvent='"+idEv+"' and IDEmp='"+idE+"'");
-            if(Rs==null)
+            Rs=St.executeQuery("select * from  participations where IDEvent='"+idEv+"' and IDEmp='"+idE+"';");
+            if(!Rs.first())
             {
-                Rs=St.executeQuery("select IDDept from eventdept Ev , employe E where Ev.IDDept = E.IDdept and E.ID='"+idE+"' and Ev.IDDevent='"+idEv+"'");
+                Rs=St.executeQuery("select * from eventdept Ev , employe E where Ev.IDDept = E.IDdept and E.ID='"+idE+"' and Ev.IDevent='"+idEv+"'");
                 if(Rs!=null)
                 {
                     Rs=null;
-                    Rs=St.executeQuery("select * from participations where Date in (select DateEvent from event where IDEvent='"+idEv+"')");
-                    if(Rs==null)
+                    Rs=St.executeQuery("select * from participations where IDEmp='"+idE+"' and Date in (select DateEvent from event where IDEvent='"+idEv+"')");
+                    if(!Rs.first())
                     {
                         Rs=St.executeQuery("select DateEvent from event where IDEvent='"+idEv+"'");
-                        String D=Rs.getString("DateEvent");
-                        St.executeUpdate("insert into participations values ('"+D+"','"+idE+"','"+idEv+"')");
+                        if(Rs.first())
+                        {
+                           St.executeUpdate("insert into participations values ('"+idEv+"','"+idE+"','"+Rs.getDate(1).toString()+"')");
+                        }
+                        
                     }
                     else
                     {JOptionPane.showMessageDialog(null ,"Vous ne pouvez pas paticiper simultanément a 2 événements  !! ","Warning",JOptionPane.WARNING_MESSAGE);}

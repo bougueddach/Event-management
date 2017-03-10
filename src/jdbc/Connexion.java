@@ -23,11 +23,11 @@ public class Connexion {
     
     public Connexion(){
         jdbc = new JDBC();
-        jdbc.setURL("jdbc:mysql://localhost:8889/events");
-        //jdbc.setURL("jdbc:mysql://localhost:3306/events");
+        //jdbc.setURL("jdbc:mysql://localhost:8889/events");
+       jdbc.setURL("jdbc:mysql://localhost:3306/events");
         jdbc.setPilote("com.mysql.jdbc.Driver");
         jdbc.setLogin("root");
-        jdbc.setPasswd("root");
+        jdbc.setPasswd("");
         //jdbc.setPasswd("");
         jdbc.ToConnect();
         Maconnexion = jdbc.getConnexion();
