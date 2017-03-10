@@ -6,11 +6,10 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import jdbc.Connexion;
 
-public class Admin {
+public class Admin extends Connexion {
 
 	private String idA;
 	private String mdpA;
-        private Connexion Con ;
         private Connection  Maconnexion;
 
 	public String getIdA() {
@@ -31,11 +30,10 @@ public class Admin {
 
 	public Admin() {
 		
-            Maconnexion = Con.getMaconnexion() ;
+            Maconnexion = super.getMaconnexion() ;
             
 	}
-
-	
+        
 	public void AjouterE(String pwd,String poste, String nom, String prenom, int Id )
     {
     

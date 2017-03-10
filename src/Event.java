@@ -1,4 +1,8 @@
-public class Event {
+
+import java.sql.Connection;
+import jdbc.Connexion;
+
+public class Event extends Connexion {
 
 	private String secteur;
 	private String theme;
@@ -8,6 +12,7 @@ public class Event {
 	private String type;
 	private String desc;
 	private String titre;
+        private Connection  Maconnexion;
 
 	public String getSecteur() {
 		return this.secteur;
@@ -74,8 +79,7 @@ public class Event {
 	}
 
 	public Event() {
-		// TODO - implement Event.Event
-		throw new UnsupportedOperationException();
+		 Maconnexion = super.getMaconnexion() ;
 	}
 
 }

@@ -1,9 +1,14 @@
-public class Employe {
+
+import java.sql.Connection;
+import jdbc.Connexion;
+
+public class Employe extends Connexion {
 
 	private int idE;
 	private String nom;
 	private String prenom;
 	private int mdpE;
+        private Connection  Maconnexion;
 
 	public int getIdE() {
 		return this.idE;
@@ -38,14 +43,10 @@ public class Employe {
 	}
 
 	public Employe() {
-		// TODO - implement Employe.Employe
-		throw new UnsupportedOperationException();
+		 Maconnexion = super.getMaconnexion() ;
 	}
 
-	/**
-	 * 
-	 * @param E
-	 */
+	
 	public void Organiser(Event E) {
 		// TODO - implement Employe.Organiser
 		throw new UnsupportedOperationException();
