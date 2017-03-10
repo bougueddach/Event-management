@@ -1,3 +1,5 @@
+package event.management;
+
 public class ChefdeDept extends Employe {
 
 	public ChefdeDept() {

@@ -1,3 +1,5 @@
+package event.management;
+
 public class Directeur extends Employe {
 
 	public Directeur() {

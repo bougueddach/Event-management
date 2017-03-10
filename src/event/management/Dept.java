@@ -1,3 +1,5 @@
+package event.management;
+
 public class Dept {
 
 	private int idD;

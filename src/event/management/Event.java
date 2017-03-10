@@ -1,3 +1,5 @@
+package event.management;
+
 
 import java.sql.Connection;
 import jdbc.Connexion;

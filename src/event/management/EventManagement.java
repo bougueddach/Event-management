@@ -5,6 +5,7 @@
  */
 package event.management;
 
+import java.sql.Date;
 import jdbc.Connexion;
 /**
  *
@@ -18,6 +19,12 @@ public class EventManagement {
     public static void main(String[] args) {
         // TODO code application logic here
         Connexion con  = new Connexion (); 
+        Employe E=new Employe();
+        long time=System.currentTimeMillis();
+        
+        Date d=new Date(time);
+        System.out.print(d);
+        E.Organiser("gala 2016", "divertissement ", "nachat",d , "A3", "xxxxxxxxxx", "fete", 2);
 
         
     }

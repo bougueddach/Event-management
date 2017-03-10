@@ -1,3 +1,5 @@
+package event.management;
+
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -55,7 +57,7 @@ public class Admin extends Connexion {
         ResultSet Rs = null ;
         try{
         St=Maconnexion.createStatement();
-        Rs=St.executeQuery("select * from employe where ID='"+id+"'");
+        Rs=St.executeQuery("select * from employe where ID='"+id+"';");
         if(Rs==null) {JOptionPane.showMessageDialog(null, "L'employé n'éxiste pas ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );}
         else{St.executeUpdate("delete from employe where ID='"+id+"';");}
         }
