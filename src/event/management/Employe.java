@@ -55,27 +55,58 @@ public class Employe extends Connexion {
 	}
 
 	
-	public void Organiser(String titre, String secteur, String theme, Date date, String lieu, String desc, String type, int IdOrg ) {
+//	public void Organiser(String titre, String secteur, String theme, Date date, String lieu, String desc, String type, int IdOrg ) {
+//            Statement St;
+//            ResultSet Rs1 = null,Rs2 = null,Rs3 = null;
+////            pas la meme date et lieu au meme temp
+//            //pas le meme organisateur au meme date
+//            //l'organisateur chef
+//            try{
+//                St=Maconnexion.createStatement();
+//                Rs1=St.executeQuery("select poste from employe where id='"+IdOrg+"' ;");
+//                if(Rs1==null)
+//                    JOptionPane.showMessageDialog(null, "L'organisateur que vous avez choisi n'existe pas " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
+//                Rs2=St.executeQuery("select * from event where dateEvent='"+date+"' and lieu='"+lieu+"';");
+//                Rs3=St.executeQuery("select * from event where dateEvent='"+date+"' and IDorg='"+IdOrg+"';");
+//                if(Rs2.next()){
+//                    JOptionPane.showMessageDialog(null, "La salle est occupée pour cette date ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
+//                }
+//                if(Rs3.next()){
+//                    JOptionPane.showMessageDialog(null, "Vous organiser un evenement au meme temps... comment vous allez faire débil ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
+//                }else{
+//                    St.executeUpdate("insert into event values ('"+titre+"' , '"+secteur+"' ,'"+theme+"', '"+date+"' , '"+lieu+"' , '"+desc+"' , '"+type+"' , "+IdOrg+" ); ");
+//                }
+//            }catch(SQLException ex){
+//                 JOptionPane.showMessageDialog(null ,"Probléme de création d'évenement  !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+//            }
+//	}
+        public void Organiser(String titre, String secteur, String theme, Date date, String lieu, String desc, String type, int IdOrg ) {
             Statement St;
-            ResultSet Rs1 = null, Rs2=null, Rs3=null;
-            //pas la meme date et lieu au meme temp
+            ResultSet Rs = null;
+//            pas la meme date et lieu au meme temp
             //pas le meme organisateur au meme date
-            //
+            //l'organisateur chef
             try{
                 St=Maconnexion.createStatement();
-                Rs1=St.executeQuery("select poste from employe where id='"+IdOrg+"' ;");
-                if(Rs1==null)
+                Rs=St.executeQuery("select Poste from employe where ID='"+IdOrg+"' ;");
+                String P=Rs.getString("Poste");
+                if(Rs==null){
                     JOptionPane.showMessageDialog(null, "L'organisateur que vous avez choisi n'existe pas " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
-                Rs2=St.executeQuery("select * from event where dateEvent='"+date+"' and lieu='"+lieu+"';");
-                Rs3=St.executeQuery("select * from event where dateEvent='"+date+"' and IDorg='"+IdOrg+"';");
-                if(Rs2.next()){
-                    JOptionPane.showMessageDialog(null, "La salle est occupée pour cette date ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
-                }
-                if(Rs3.next()){
-                    JOptionPane.showMessageDialog(null, "Vous organiser un evenement au meme temps... comment vous allez faire débil ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
+                }else if(P!="chef"){
+                    JOptionPane.showMessageDialog(null, " Vous n'avez l'autorisation de créer un évenement ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
                 }else{
-                    St.executeUpdate("insert into event values (NULL,'"+titre+"' , '"+secteur+"' , '"+date+"' , '"+lieu+"' , '"+desc+"' , '"+type+"' , "+IdOrg+" ); ");
-                }
+                    Rs=St.executeQuery("select * from event where dateEvent='"+date+"' and lieu='"+lieu+"';");
+                    if(Rs.next()){
+                        JOptionPane.showMessageDialog(null, "La salle est occupée pour cette date ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
+                    }else{
+                        Rs=St.executeQuery("select * from event where dateEvent='"+date+"' and IDorg='"+IdOrg+"';");
+                        if(Rs.next()){
+                            JOptionPane.showMessageDialog(null, "Vous organiser un evenement au meme temps... comment vous allez faire débil ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
+                        }else{
+                        St.executeUpdate("insert into event values ('"+titre+"' , '"+secteur+"' ,'"+theme+"', '"+date+"' , '"+lieu+"' , '"+desc+"' , '"+type+"' , "+IdOrg+" ); ");
+                        }
+                    }
+                } 
             }catch(SQLException ex){
                  JOptionPane.showMessageDialog(null ,"Probléme de création d'évenement  !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
             }
