@@ -67,10 +67,9 @@ public class Employe extends Connexion {
             try{
                 St=Maconnexion.createStatement();
                 Rs=St.executeQuery("select Poste from employe where ID='"+IdOrg+"' ;");
-                String P=Rs.getString("Poste");
-                if(Rs==null){
+                if(!Rs.first()){
                     JOptionPane.showMessageDialog(null, "L'organisateur que vous avez choisi n'existe pas " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
-                }else if(P!="chef"){
+                }else if(Rs.getString(1)!="chef"){
                     JOptionPane.showMessageDialog(null, " Vous n'avez l'autorisation de créer un évenement ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
                 }else{
                     Rs=St.executeQuery("select * from event where dateEvent='"+date+"' and lieu='"+lieu+"';");
@@ -143,10 +142,7 @@ public class Employe extends Connexion {
              catch (SQLException ex) {
                  JOptionPane.showMessageDialog(null ,"Pb dans la requete de desinscription de l'employe !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
                 
-            }
-            
-		
-            
+            }  
 	}
 
 	/**

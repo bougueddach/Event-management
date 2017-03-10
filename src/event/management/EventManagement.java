@@ -22,7 +22,7 @@ public class EventManagement {
         Employe E=new Employe();
         long time=System.currentTimeMillis();
         
-        E.Desincrire(2,1);
+
         
         Date d=new Date(time);
         System.out.print(d);
