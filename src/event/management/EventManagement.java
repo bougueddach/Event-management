@@ -22,6 +22,8 @@ public class EventManagement {
         Employe E=new Employe();
         long time=System.currentTimeMillis();
         
+        E.Desincrire(2,1);
+        
         Date d=new Date(time);
         System.out.print(d);
         E.Organiser("gala 2016", "divertissement ", "nachat",d , "A3", "xxxxxxxxxx", "fete", 10);
