@@ -127,10 +127,7 @@ public class Employe extends Connexion {
             
     }
 
-	/**
-	 * 
-	 * @param E
-	 */
+	
 	public void Desincrire(int idE , int idEv) {
            
                 Statement St;
@@ -145,13 +142,28 @@ public class Employe extends Connexion {
             }  
 	}
 
-	/**
-	 * 
-	 * @param E
-	 */
-	public void Annuler(Event E) {
-		// TODO - implement Employe.Annuler
-		throw new UnsupportedOperationException();
+	
+	public void Annuler(int idE , int idEv) {
+                Statement St;
+                ResultSet Rs = null ;
+             try {    
+                St=Maconnexion.createStatement();
+                Rs=St.executeQuery("select * from event where IDEvent ='"+idEv+"' and IDorg='"+idE+"'");
+                if(Rs.first() || idE==0)
+                {
+                    St.executeUpdate("delete from event where IDEvent='"+idEv+"';");                    
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null ,"Vous n'avez pas le droit d'annuler cet événements  !! ","Warning",JOptionPane.WARNING_MESSAGE);
+                }               
+                
+             }
+             catch (SQLException ex) {
+                 JOptionPane.showMessageDialog(null ,"Pb dans la requete de d'annulation d'evenement !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+                
+            }   
+		
 	}
 
 	/**
