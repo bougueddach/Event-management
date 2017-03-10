@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import jdbc.Connexion;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Employe extends Connexion {
@@ -113,7 +115,7 @@ public class Employe extends Connexion {
             else{JOptionPane.showMessageDialog(null ,"Vous vous êtes déjà inscrit pour cet événement !! ","Warning",JOptionPane.WARNING_MESSAGE);}
         }
         catch(SQLException ex) {
-            JOptionPane.showMessageDialog(null ,"Pb dans la requete d'ajout de l'employe !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null ,"Pb dans la requete d'inscription de l'employe !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
         }
         
             
@@ -123,9 +125,21 @@ public class Employe extends Connexion {
 	 * 
 	 * @param E
 	 */
-	public void Desincrire(Event E) {
-		// TODO - implement Employe.Desincrire
-		throw new UnsupportedOperationException();
+	public void Desincrire(int idE , int idEv) {
+           
+                Statement St;
+                ResultSet Rs = null ;
+             try {    
+                St=Maconnexion.createStatement();
+                St.executeUpdate("delete from participations where IDEvent='"+idEv+"' and IDEmp='"+idE+"';");
+             }
+             catch (SQLException ex) {
+                 JOptionPane.showMessageDialog(null ,"Pb dans la requete de desinscription de l'employe !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+                
+            }
+            
+		
+            
 	}
 
 	/**

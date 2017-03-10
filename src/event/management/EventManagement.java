@@ -21,7 +21,7 @@ public class EventManagement {
         Connexion con  = new Connexion (); 
         Employe E=new Employe();
         
-        E.Inscrire(2,1);
+        E.Desincrire(2,1);
         
 
         
