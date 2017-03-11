@@ -242,23 +242,27 @@ public class Authentification extends javax.swing.JFrame {
             .addGroup(AuthentifyLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(AuthentifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(AuthentifyLayout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Admincon, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ConAdmin))
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addComponent(ConAdmin)))
                 .addContainerGap(123, Short.MAX_VALUE))
         );
         AuthentifyLayout.setVerticalGroup(
             AuthentifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AuthentifyLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(AuthentifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ConAdmin)
-                    .addComponent(Admincon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(AuthentifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AuthentifyLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(AuthentifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ConAdmin)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AuthentifyLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Admincon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -718,12 +722,13 @@ public class Authentification extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(EspaceEmployeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(EspaceEmployeLayout.createSequentialGroup()
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 24, Short.MAX_VALUE))
-                    .addGroup(EspaceEmployeLayout.createSequentialGroup()
                         .addGap(4, 4, 4)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jButton26))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                    .addGroup(EspaceEmployeLayout.createSequentialGroup()
+                        .addGroup(EspaceEmployeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton26))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGroup(EspaceEmployeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(EspaceEmployeLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1423,25 +1428,37 @@ public class Authentification extends javax.swing.JFrame {
             Statement St ;
           try {
             St=Maconnexion.createStatement();
-            Rs=St.executeQuery("select ID from employe where ID='"+Idcon.getText()+"' and Password='"+Mdpcon.getText()+"'");
-            if(Rs.first())
+            if(Idcon.getText().isEmpty() && Mdpcon.getText().isEmpty())
+            {JOptionPane.showMessageDialog(null ," Veuillez remplir les champs !! ","Warning",JOptionPane.WARNING_MESSAGE);}
+            else
+            {if(!Idcon.getText().isEmpty())
             {
-               int id = Rs.getInt(1);
-               Rs=null;
-               Rs=St.executeQuery("select Poste from employe where ID='"+id+"'");
-               switch(Rs.getString(1))
-               {
-                   case "Chef" : EspaceChef.setVisible(true);break;
-                   case "Directeur":EspaceDirecteur.setVisible(true);break;
-                   default : EspaceEmploye.setVisible(true);break;
-               }
-
+                if(!Mdpcon.getText().isEmpty())
+                { Rs=St.executeQuery("select ID from employe where ID='"+Idcon.getText()+"' and Password='"+Mdpcon.getText()+"'");
+                    if(Rs.first())
+                      {
+                         int id = Rs.getInt(1);
+                         Rs=null;
+                         Rs=St.executeQuery("select Poste from employe where ID='"+id+"'");
+                         switch(Rs.getString(1))
+                            {
+                                case "Chef" : EspaceChef.setVisible(true);break;
+                                case "Directeur":EspaceDirecteur.setVisible(true);break;
+                                default : EspaceEmploye.setVisible(true);break;
+                            }
+                        }
+                    else
+                    {JOptionPane.showMessageDialog(null ,"Id ou mdp incorrect !! " ,"Warning",JOptionPane.WARNING_MESSAGE);}
+                }
+                else
+                {JOptionPane.showMessageDialog(null ," Veuillez remplir le champ mot de passe  !! ","Warning",JOptionPane.WARNING_MESSAGE);}
             }
             else
-            {
-               JOptionPane.showMessageDialog(null ,"Id ou mdp incorrect !! " ,"Warning",JOptionPane.WARNING_MESSAGE);
-            }         
-           } catch (SQLException ex) {
+            {JOptionPane.showMessageDialog(null ," Veuillez remplir le champ identifiant  !! ","Warning",JOptionPane.WARNING_MESSAGE);}   
+            }
+           
+            
+            } catch (SQLException ex) {
              JOptionPane.showMessageDialog(null ,"Probléme dans le requete de connexion  !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
         }
       
@@ -1456,14 +1473,18 @@ public class Authentification extends javax.swing.JFrame {
 
     private void ConAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConAdminActionPerformed
         
-        if(Admincon.getText().equalsIgnoreCase("ADMIN") )
+        if(!Admincon.getText().isEmpty())
+        {
+            if(Admincon.getText().equalsIgnoreCase("ADMIN") )
         {
             EspaceAdmin.setVisible(true);
         }
         else
         {
           JOptionPane.showMessageDialog(null ,"Mot de passe incorrecte !! ","Warning",JOptionPane.WARNING_MESSAGE); 
+        }           
         }
+        else {JOptionPane.showMessageDialog(null ," Veuillez remplir le champ mot de passe  !! ","Warning",JOptionPane.WARNING_MESSAGE); }
     }//GEN-LAST:event_ConAdminActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
