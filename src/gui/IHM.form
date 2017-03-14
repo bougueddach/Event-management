@@ -2,7 +2,15 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Component class="gui.Authentify" name="authentify1">
+    <Component class="gui.EspaceAdmin" name="espaceAdmin1">
+    </Component>
+    <Component class="gui.EspaceAdmin" name="espaceAdmin2">
+    </Component>
+    <Component class="gui.EspaceAdmin" name="espaceAdmin3">
+    </Component>
+    <Component class="gui.EspaceAdmin" name="espaceAdmin4">
+    </Component>
+    <Component class="gui.EspaceAdmin" name="espaceAdmin5">
     </Component>
     <Component class="gui.EspaceChef" name="espaceChef2">
     </Component>
