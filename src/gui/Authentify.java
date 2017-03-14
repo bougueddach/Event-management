@@ -182,9 +182,7 @@ public class Authentify extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        // TODO add your handling code here:
-
-        ResultSet Rs = null ;
+          ResultSet Rs = null ;
         Statement St ;
         try {
             St=Maconnexion.createStatement();
@@ -202,9 +200,9 @@ public class Authentify extends javax.swing.JPanel {
                             Rs=St.executeQuery("select Poste from employe where ID='"+id+"'");
                             switch(Rs.getString(1))
                             {
-//                                case "Chef" : EspaceChef.setVisible(true);break;
-//                                case "Directeur":EspaceDirecteur.setVisible(true);break;
-//                                default : EspaceEmploye.setVisible(true);break;
+                                  case "Chef" : EspaceChef Ec = new EspaceChef() ; Ec.setVisible(true);break;
+                                  case "Directeur":EspaceDirecteur Ed =new EspaceDirecteur() ; Ed.setVisible(true);break;
+                                  default : EspaceEmploye Ee = new EspaceEmploye() ; Ee.setVisible(true);break;
                             }
                         }
                         else
@@ -223,12 +221,11 @@ public class Authentify extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void ConAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConAdminActionPerformed
-
         if(!Admincon.getText().isEmpty())
         {
             if(Admincon.getText().equalsIgnoreCase("ADMIN") )
             {
-//                EspaceAdmin.setVisible(true);
+                EspaceAdmin Ea= new EspaceAdmin() ; Ea.setVisible(true);
             }
             else
             {
