@@ -2,7 +2,15 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Component class="gui.Authentify" name="authentify1">
+    <Component class="gui.EspaceAdmin" name="espaceAdmin1">
+    </Component>
+    <Component class="gui.EspaceAdmin" name="espaceAdmin2">
+    </Component>
+    <Component class="gui.EspaceAdmin" name="espaceAdmin3">
+    </Component>
+    <Component class="gui.EspaceAdmin" name="espaceAdmin4">
+    </Component>
+    <Component class="gui.EspaceAdmin" name="espaceAdmin5">
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -27,10 +35,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="authentify2" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="espaceAdmin6" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -38,14 +46,14 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="authentify2" min="-2" max="-2" attributes="0"/>
+              <Component id="espaceAdmin6" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="gui.Authentify" name="authentify2">
+    <Component class="gui.EspaceAdmin" name="espaceAdmin6">
     </Component>
   </SubComponents>
 </Form>

@@ -28,8 +28,12 @@ public class IHM extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        authentify1 = new gui.Authentify();
-        authentify2 = new gui.Authentify();
+        espaceAdmin1 = new gui.EspaceAdmin();
+        espaceAdmin2 = new gui.EspaceAdmin();
+        espaceAdmin3 = new gui.EspaceAdmin();
+        espaceAdmin4 = new gui.EspaceAdmin();
+        espaceAdmin5 = new gui.EspaceAdmin();
+        espaceAdmin6 = new gui.EspaceAdmin();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,16 +41,16 @@ public class IHM extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(authentify2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(espaceAdmin6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(authentify2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(espaceAdmin6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -90,7 +94,11 @@ public class IHM extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private gui.Authentify authentify1;
-    private gui.Authentify authentify2;
+    private gui.EspaceAdmin espaceAdmin1;
+    private gui.EspaceAdmin espaceAdmin2;
+    private gui.EspaceAdmin espaceAdmin3;
+    private gui.EspaceAdmin espaceAdmin4;
+    private gui.EspaceAdmin espaceAdmin5;
+    private gui.EspaceAdmin espaceAdmin6;
     // End of variables declaration//GEN-END:variables
 }
