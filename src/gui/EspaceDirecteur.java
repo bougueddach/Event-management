@@ -5,17 +5,31 @@
  */
 package gui;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import jdbc.Connexion;
+import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author Sarah LOTFI
  */
 public class EspaceDirecteur extends javax.swing.JPanel {
 
+     Connexion con = new Connexion();
+   Connection Maconnexion;
     /**
      * Creates new form EspaceDirecteur
      */
     public EspaceDirecteur() {
         initComponents();
+          Maconnexion = con.getMaconnexion();
+        updateJtable15_Event();
+        updateJtable17_Event();
+        updateJtable18_Event();
     }
 
     /**
@@ -453,4 +467,40 @@ public class EspaceDirecteur extends javax.swing.JPanel {
     private javax.swing.JTable jTable21;
     private javax.swing.JTextField jTextField10;
     // End of variables declaration//GEN-END:variables
+
+    private void updateJtable15_Event() {
+       Statement St ;
+        ResultSet Rs = null ;
+        try {
+            St =Maconnexion.createStatement();
+            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID");
+           jTable15.setModel(DbUtils.resultSetToTableModel(Rs));
+        }
+        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);}
+    }
+
+    private void updateJtable17_Event() {
+        Statement St;
+      ResultSet Rs = null;
+      try {
+          St = Maconnexion.createStatement();
+          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'public'");
+         jTable17.setModel(DbUtils.resultSetToTableModel(Rs));
+      }
+      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+      }
+    }
+
+    private void updateJtable18_Event() {
+        Statement St;
+      ResultSet Rs = null;
+      try {
+          St = Maconnexion.createStatement();
+          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'privé'");
+         jTable18.setModel(DbUtils.resultSetToTableModel(Rs));
+      }
+      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+      }
+    }
+    
 }

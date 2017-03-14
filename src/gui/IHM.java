@@ -17,6 +17,7 @@ public class IHM extends javax.swing.JFrame {
     public IHM() {
         initComponents();
         Authentify aut = new Authentify();
+        EspaceChef espch = new EspaceChef();
     }
 
     /**
@@ -29,7 +30,12 @@ public class IHM extends javax.swing.JFrame {
     private void initComponents() {
 
         authentify1 = new gui.Authentify();
-        authentify2 = new gui.Authentify();
+        espaceChef2 = new gui.EspaceChef();
+        espaceChef1 = new gui.EspaceChef();
+        espaceChef4 = new gui.EspaceChef();
+        espaceChef3 = new gui.EspaceChef();
+        espaceChef5 = new gui.EspaceChef();
+        espaceChef6 = new gui.EspaceChef();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,17 +43,11 @@ public class IHM extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(authentify2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 393, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(authentify2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 274, Short.MAX_VALUE)
         );
 
         pack();
@@ -91,6 +91,11 @@ public class IHM extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private gui.Authentify authentify1;
-    private gui.Authentify authentify2;
+    private gui.EspaceChef espaceChef1;
+    private gui.EspaceChef espaceChef2;
+    private gui.EspaceChef espaceChef3;
+    private gui.EspaceChef espaceChef4;
+    private gui.EspaceChef espaceChef5;
+    private gui.EspaceChef espaceChef6;
     // End of variables declaration//GEN-END:variables
 }

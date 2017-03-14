@@ -4,6 +4,18 @@
   <NonVisualComponents>
     <Component class="gui.Authentify" name="authentify1">
     </Component>
+    <Component class="gui.EspaceChef" name="espaceChef2">
+    </Component>
+    <Component class="gui.EspaceChef" name="espaceChef1">
+    </Component>
+    <Component class="gui.EspaceChef" name="espaceChef4">
+    </Component>
+    <Component class="gui.EspaceChef" name="espaceChef3">
+    </Component>
+    <Component class="gui.EspaceChef" name="espaceChef5">
+    </Component>
+    <Component class="gui.EspaceChef" name="espaceChef6">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -27,25 +39,13 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="authentify2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
+          <EmptySpace min="0" pref="393" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="authentify2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
+          <EmptySpace min="0" pref="274" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
-  <SubComponents>
-    <Component class="gui.Authentify" name="authentify2">
-    </Component>
-  </SubComponents>
 </Form>
