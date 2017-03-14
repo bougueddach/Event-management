@@ -347,7 +347,10 @@ public class EspaceAdmin extends javax.swing.JPanel {
         });
         jScrollPane6.setViewportView(jTable6);
 
+        jPanel12.add(jScrollPane6);
+
         jTextField8.setText("Rechercher");
+        jPanel12.add(jTextField8);
 
         ButtonAjoutDept.setText("Ajouter département");
         ButtonAjoutDept.addActionListener(new java.awt.event.ActionListener() {
@@ -355,6 +358,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
                 ButtonAjoutDeptActionPerformed(evt);
             }
         });
+        jPanel12.add(ButtonAjoutDept);
 
         jButton20.setText("Supprimer");
         jButton20.addActionListener(new java.awt.event.ActionListener() {
@@ -362,6 +366,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
                 jButton20ActionPerformed(evt);
             }
         });
+        jPanel12.add(jButton20);
 
         jButton21.setText("Modifier");
         jButton21.addActionListener(new java.awt.event.ActionListener() {
@@ -369,6 +374,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
                 jButton21ActionPerformed(evt);
             }
         });
+        jPanel12.add(jButton21);
 
         jTextDept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -380,51 +386,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
                 jTextDeptKeyPressed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ButtonAjoutDept, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextDept))
-                .addGap(22, 22, 22))
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addComponent(jButton21)
-                        .addGap(60, 60, 60)
-                        .addComponent(jButton20))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(345, Short.MAX_VALUE))
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(ButtonAjoutDept)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton20)
-                    .addComponent(jButton21))
-                .addContainerGap(50, Short.MAX_VALUE))
-        );
+        jPanel12.add(jTextDept);
 
         jTabbedPane3.addTab("Section départements", jPanel12);
 
@@ -480,6 +442,13 @@ public class EspaceAdmin extends javax.swing.JPanel {
 
     private void Disconnect2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Disconnect2ActionPerformed
 
+        this.setVisible(false);
+        JOptionPane.showMessageDialog(null ,"Au revoir!! " );
+        Authentify A=new Authentify();
+        A.setSize(1300, 500);
+        this.removeAll();
+        this.add(A);
+        this.setVisible(true);
     }//GEN-LAST:event_Disconnect2ActionPerformed
 
     private void jTable6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable6MouseClicked

@@ -279,7 +279,7 @@ public class EspaceDirecteur extends javax.swing.JPanel {
                 .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton40)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane5.addTab("Mes participations", jPanel27);
@@ -429,7 +429,13 @@ public class EspaceDirecteur extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void DiscoChef1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiscoChef1ActionPerformed
-        //Authentify.setVisible(true);
+        this.setVisible(false);
+        JOptionPane.showMessageDialog(null ,"Au revoir!! " );
+        Authentify A=new Authentify();
+        A.setSize(1300, 500);
+        this.removeAll();
+        this.add(A);
+        this.setVisible(true);
     }//GEN-LAST:event_DiscoChef1ActionPerformed
 
 

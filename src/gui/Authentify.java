@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import jdbc.Connexion;
 
 /**
@@ -25,7 +25,7 @@ public class Authentify extends javax.swing.JPanel {
     public Authentify() {
         initComponents();
         Maconnexion = con.getMaconnexion();
-         Admincon.setVisible(false);
+        Admincon.setVisible(false);
         ConAdmin.setVisible(false);
     }
 
@@ -182,8 +182,8 @@ public class Authentify extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-          ResultSet Rs = null ;
-        Statement St ;
+        ResultSet Rs = null, Rs1=null ;
+        Statement St , St1;
         try {
             St=Maconnexion.createStatement();
             if(Idcon.getText().isEmpty() && Mdpcon.getText().isEmpty())
@@ -196,13 +196,39 @@ public class Authentify extends javax.swing.JPanel {
                         if(Rs.first())
                         {
                             int id = Rs.getInt(1);
-                            Rs=null;
-                            Rs=St.executeQuery("select Poste from employe where ID='"+id+"'");
-                            switch(Rs.getString(1))
+                            St1=Maconnexion.createStatement();
+                            Rs1=St1.executeQuery("select Poste from employe where ID='"+id+"'");
+                            if(Rs1.first()){
+                            switch(Rs1.getString(1))
                             {
-                                  case "Chef" : EspaceChef Ec = new EspaceChef() ; Ec.setVisible(true);break;
-                                  case "Directeur":EspaceDirecteur Ed =new EspaceDirecteur() ; Ed.setVisible(true);break;
-                                  default : EspaceEmploye Ee = new EspaceEmploye() ; Ee.setVisible(true);break;
+                                case "Chef" :
+                                    this.setVisible(false);
+                                    JOptionPane.showMessageDialog(null ,"Bienvenue Chef !! " );
+                                    EspaceChef Ec = new EspaceChef();
+                                    Ec.setSize(1300, 500);
+                                    this.removeAll();
+                                    this.add(Ec);
+                                    this.setVisible(true);
+                                    break;
+                                case "Directeur":
+                                    this.setVisible(false);
+                                    JOptionPane.showMessageDialog(null ,"Bienvenidos Director !! " );
+                                    EspaceDirecteur Ed =new EspaceDirecteur() ;
+                                    Ed.setSize(1300, 500);
+                                    this.removeAll();
+                                    this.add(Ed);
+                                    this.setVisible(true);
+                                    break;
+                                default : 
+                                    this.setVisible(false);
+                                    JOptionPane.showMessageDialog(null ,"Bienvenue !! " );
+                                    EspaceEmploye Ee = new EspaceEmploye() ;
+                                    Ee.setSize(1300, 500);
+                                    this.removeAll();
+                                    this.add(Ee);
+                                    this.setVisible(true);
+                                    break;
+                            }
                             }
                         }
                         else
@@ -221,11 +247,18 @@ public class Authentify extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void ConAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConAdminActionPerformed
+        
         if(!Admincon.getText().isEmpty())
         {
             if(Admincon.getText().equalsIgnoreCase("ADMIN") )
             {
-                EspaceAdmin Ea= new EspaceAdmin() ; Ea.setVisible(true);
+                this.setVisible(false);
+                JOptionPane.showMessageDialog(null ,"Admin connectée avec succée !! " );
+                EspaceAdmin E=new EspaceAdmin();
+                E.setSize(1300, 500);
+                this.removeAll();
+                this.add(E);
+                this.setVisible(true);
             }
             else
             {
