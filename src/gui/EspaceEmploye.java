@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import jdbc.Connexion;
 import net.proteanit.sql.DbUtils;
 
@@ -405,13 +406,14 @@ Connexion con = new Connexion();
     }// </editor-fold>//GEN-END:initComponents
 
     private void DiscoChef2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiscoChef2ActionPerformed
-        this.setVisible(false);
+        SwingUtilities.getWindowAncestor(this).dispose();
         JOptionPane.showMessageDialog(null ,"Au revoir!! " );
+        GUI G=new GUI();
         Authentify A=new Authentify();
         A.setSize(1300, 500);
-        this.removeAll();
-        this.add(A);
-        this.setVisible(true);
+        G.add(A);
+        G.setSize(500, 500);
+        G.setVisible(true);
     }//GEN-LAST:event_DiscoChef2ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

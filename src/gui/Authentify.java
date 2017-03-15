@@ -39,7 +39,7 @@ public class Authentify extends javax.swing.JPanel {
     private void initComponents() {
 
         Authentify = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        AdminButton = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Idcon = new javax.swing.JTextField();
@@ -49,10 +49,10 @@ public class Authentify extends javax.swing.JPanel {
         ConAdmin = new javax.swing.JButton();
         Admincon = new javax.swing.JPasswordField();
 
-        jButton1.setText("Administrateur");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        AdminButton.setText("Administrateur");
+        AdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AdminButtonActionPerformed(evt);
             }
         });
 
@@ -131,7 +131,7 @@ public class Authentify extends javax.swing.JPanel {
                 .addGap(29, 29, 29)
                 .addGroup(AuthentifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(AuthentifyLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AdminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(Admincon, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -144,7 +144,7 @@ public class Authentify extends javax.swing.JPanel {
             .addGroup(AuthentifyLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(AuthentifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AdminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ConAdmin)
                     .addComponent(Admincon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -170,11 +170,11 @@ public class Authentify extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void AdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonActionPerformed
         // TODO add your handling code here:
         Admincon.setVisible(true);
         ConAdmin.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AdminButtonActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
@@ -202,7 +202,7 @@ public class Authentify extends javax.swing.JPanel {
                             switch(Rs1.getString(1))
                             {
                                 case "Chef" :
-                                    this.setVisible(false);
+                                    SwingUtilities.getWindowAncestor(this).dispose();
                                     JOptionPane.showMessageDialog(null ,"Bienvenue Chef !! " );
                                     EspaceChef Ec = new EspaceChef();
                                     Ec.setSize(1300, 500);
@@ -211,7 +211,7 @@ public class Authentify extends javax.swing.JPanel {
                                     this.setVisible(true);
                                     break;
                                 case "Directeur":
-                                    this.setVisible(false);
+                                    SwingUtilities.getWindowAncestor(this).dispose();
                                     JOptionPane.showMessageDialog(null ,"Bienvenidos Director !! " );
                                     EspaceDirecteur Ed =new EspaceDirecteur() ;
                                     Ed.setSize(1300, 500);
@@ -220,7 +220,7 @@ public class Authentify extends javax.swing.JPanel {
                                     this.setVisible(true);
                                     break;
                                 default : 
-                                    this.setVisible(false);
+                                    SwingUtilities.getWindowAncestor(this).dispose();
                                     JOptionPane.showMessageDialog(null ,"Bienvenue !! " );
                                     EspaceEmploye Ee = new EspaceEmploye() ;
                                     Ee.setSize(1300, 500);
@@ -252,13 +252,15 @@ public class Authentify extends javax.swing.JPanel {
         {
             if(Admincon.getText().equalsIgnoreCase("ADMIN") )
             {
-                this.setVisible(false);
                 JOptionPane.showMessageDialog(null ,"Admin connectée avec succée !! " );
-                EspaceAdmin E=new EspaceAdmin();
-                E.setSize(1300, 500);
-                this.removeAll();
-                this.add(E);
-                this.setVisible(true);
+                SwingUtilities.getWindowAncestor(this).dispose();
+                GUI G=new GUI();
+                G.setSize(1000, 500);
+                G.setVisible(true);
+                EspaceAdmin Ea= new EspaceAdmin();
+                Ea.setSize(1000, 500);
+                G.add(Ea);
+                
             }
             else
             {
@@ -274,12 +276,12 @@ public class Authentify extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AdminButton;
     private javax.swing.JPasswordField Admincon;
     private javax.swing.JPanel Authentify;
     private javax.swing.JButton ConAdmin;
     private javax.swing.JTextField Idcon;
     private javax.swing.JPasswordField Mdpcon;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

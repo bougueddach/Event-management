@@ -26,6 +26,10 @@ public class EventManagement {
         A.setSize(1300, 500);
         G.add(A);
         G.setVisible(true);
+
+
+        
+
         
     }
     

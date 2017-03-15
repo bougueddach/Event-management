@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import jdbc.Connexion;
@@ -447,13 +448,14 @@ public class EspaceChef extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void DiscoChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiscoChefActionPerformed
-        this.setVisible(false);
-        JOptionPane.showMessageDialog(null ,"Au revoir!! " );
+        SwingUtilities.getWindowAncestor(this).dispose();
+        JOptionPane.showMessageDialog(null ,"Au revoir!! CHEF" );
+        GUI G=new GUI();
         Authentify A=new Authentify();
         A.setSize(1300, 500);
-        this.removeAll();
-        this.add(A);
-        this.setVisible(true);
+        G.add(A);
+        G.setSize(500, 500);
+        G.setVisible(true);
     }//GEN-LAST:event_DiscoChefActionPerformed
 
 //       private void Trier(String filtre) {

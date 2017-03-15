@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import jdbc.Connexion;
 import net.proteanit.sql.DbUtils;
 
@@ -429,13 +430,14 @@ public class EspaceDirecteur extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void DiscoChef1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiscoChef1ActionPerformed
-        this.setVisible(false);
-        JOptionPane.showMessageDialog(null ,"Au revoir!! " );
+        SwingUtilities.getWindowAncestor(this).dispose();
+        JOptionPane.showMessageDialog(null ,"Au revoir!! BOSS " );
+        GUI G=new GUI();
         Authentify A=new Authentify();
         A.setSize(1300, 500);
-        this.removeAll();
-        this.add(A);
-        this.setVisible(true);
+        G.add(A);
+        G.setSize(500, 500);
+        G.setVisible(true);
     }//GEN-LAST:event_DiscoChef1ActionPerformed
 
 
