@@ -23,14 +23,16 @@ import net.proteanit.sql.DbUtils;
  * @author Sarah LOTFI
  */
 public class EspaceChef extends javax.swing.JPanel {
+        private int IdUser;
     Connexion con = new Connexion();
    Connection Maconnexion;
 //   DefaultTableModel dm;
     /**
      * Creates new form EspaceChef
      */
-    public EspaceChef() {
+    public EspaceChef(int Id) {
         initComponents();
+        IdUser=Id;
         Maconnexion = con.getMaconnexion();
         updateJtable11_Event();
         updateJtable12_Event();
@@ -49,295 +51,77 @@ public class EspaceChef extends javax.swing.JPanel {
         EspaceChef = new javax.swing.JPanel();
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel13 = new javax.swing.JPanel();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        jTable11 = new javax.swing.JTable();
-        jButton22 = new javax.swing.JButton();
-        jButton27 = new javax.swing.JButton();
         jPanel21 = new javax.swing.JPanel();
-        jScrollPane12 = new javax.swing.JScrollPane();
-        jTable12 = new javax.swing.JTable();
-        jButton28 = new javax.swing.JButton();
-        jButton29 = new javax.swing.JButton();
         jPanel22 = new javax.swing.JPanel();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        jTable13 = new javax.swing.JTable();
-        jButton30 = new javax.swing.JButton();
-        jButton31 = new javax.swing.JButton();
         jPanel23 = new javax.swing.JPanel();
-        jScrollPane14 = new javax.swing.JScrollPane();
-        jTable14 = new javax.swing.JTable();
-        jButton33 = new javax.swing.JButton();
         jPanel25 = new javax.swing.JPanel();
-        jScrollPane19 = new javax.swing.JScrollPane();
-        jTable19 = new javax.swing.JTable();
-        jButton37 = new javax.swing.JButton();
-        jButton39 = new javax.swing.JButton();
         jTextField9 = new javax.swing.JTextField();
         DiscoChef = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jCalendar2 = new com.toedter.calendar.JCalendar();
         jLabel9 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
-
-        jTable11.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Titre", "Secteur", "Thème", "Date", "Lieu", "Description", "Organisateur"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane11.setViewportView(jTable11);
-
-        jButton22.setText("S'inscrire");
-
-        jButton27.setText("Se désinscrire");
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addComponent(jButton22)
-                .addGap(75, 75, 75)
-                .addComponent(jButton27)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 518, Short.MAX_VALUE)
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton22)
-                    .addComponent(jButton27))
-                .addContainerGap())
+            .addGap(0, 346, Short.MAX_VALUE)
         );
 
         jTabbedPane4.addTab("Tous", jPanel13);
-
-        jTable12.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Titre", "Secteur", "Thème", "Date", "Lieu", "Description", "Organisateur"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane12.setViewportView(jTable12);
-
-        jButton28.setText("S'inscrire");
-
-        jButton29.setText("Se désinscrire");
 
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
         jPanel21Layout.setHorizontalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel21Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel21Layout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addComponent(jButton28)
-                .addGap(75, 75, 75)
-                .addComponent(jButton29)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 518, Short.MAX_VALUE)
         );
         jPanel21Layout.setVerticalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel21Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton28)
-                    .addComponent(jButton29))
-                .addContainerGap())
+            .addGap(0, 346, Short.MAX_VALUE)
         );
 
         jTabbedPane4.addTab("Publics", jPanel21);
-
-        jTable13.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Titre", "Secteur", "Thème", "Date", "Lieu", "Description", "Organisateur"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane13.setViewportView(jTable13);
-
-        jButton30.setText("S'inscrire");
-
-        jButton31.setText("Se désinscrire");
 
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
         jPanel22Layout.setHorizontalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel22Layout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addComponent(jButton30)
-                .addGap(75, 75, 75)
-                .addComponent(jButton31)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel22Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE))
+            .addGap(0, 518, Short.MAX_VALUE)
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel22Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton30)
-                    .addComponent(jButton31))
-                .addContainerGap())
+            .addGap(0, 346, Short.MAX_VALUE)
         );
 
         jTabbedPane4.addTab("Privés", jPanel22);
-
-        jTable14.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Titre", "Secteur", "Thème", "Date", "Lieu", "Description", "Organisateur"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane14.setViewportView(jTable14);
-
-        jButton33.setText("Se désinscrire");
 
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
         jPanel23Layout.setHorizontalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel23Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel23Layout.createSequentialGroup()
-                .addGap(205, 205, 205)
-                .addComponent(jButton33)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 518, Short.MAX_VALUE)
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel23Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton33)
-                .addContainerGap(15, Short.MAX_VALUE))
+            .addGap(0, 346, Short.MAX_VALUE)
         );
 
         jTabbedPane4.addTab("Mes participations", jPanel23);
-
-        jTable19.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Titre", "Secteur", "Thème", "Date", "Lieu", "Description", "Organisateur"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane19.setViewportView(jTable19);
-
-        jButton37.setText("Modifier");
-
-        jButton39.setText("Supprimer");
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
         jPanel25Layout.setHorizontalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel25Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel25Layout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addComponent(jButton37)
-                .addGap(75, 75, 75)
-                .addComponent(jButton39)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 518, Short.MAX_VALUE)
         );
         jPanel25Layout.setVerticalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel25Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton37)
-                    .addComponent(jButton39))
-                .addContainerGap())
+            .addGap(0, 346, Short.MAX_VALUE)
         );
 
         jTabbedPane4.addTab("Mes événements", jPanel25);
@@ -379,26 +163,23 @@ public class EspaceChef extends javax.swing.JPanel {
             EspaceChefLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EspaceChefLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(EspaceChefLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(EspaceChefLayout.createSequentialGroup()
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(162, 162, 162)
-                        .addComponent(DiscoChef)
-                        .addGap(31, 31, 31))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChefLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCalendar2, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 259, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(162, 162, 162)
+                .addComponent(DiscoChef)
+                .addGap(31, 31, 31))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChefLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(EspaceChefLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChefLayout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChefLayout.createSequentialGroup()
+                        .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(295, 295, 295))))
         );
         EspaceChefLayout.setVerticalGroup(
             EspaceChefLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -410,35 +191,30 @@ public class EspaceChef extends javax.swing.JPanel {
                             .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(DiscoChef))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
                 .addGap(13, 13, 13)
                 .addGroup(EspaceChefLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(EspaceChefLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(EspaceChefLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(EspaceChefLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jCalendar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(17, 17, 17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 888, Short.MAX_VALUE)
+            .addGap(0, 937, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(EspaceChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addContainerGap(31, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 346, Short.MAX_VALUE)
+            .addGap(0, 504, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -470,159 +246,159 @@ public class EspaceChef extends javax.swing.JPanel {
 //     if (jPanel13.isEnabled())  { dm = (DefaultTableModel) jTable11.getModel();   Trier(choix); }
 //      if (jPanel21.isEnabled())  { dm = (DefaultTableModel) jTable12.getModel();  Trier(choix); }
 //       if (jPanel22.isEnabled())  { dm = (DefaultTableModel) jTable13.getModel(); Trier(choix); }
-         Statement St ;
-        ResultSet Rs = null ;
-        String choix = jComboBox1.getSelectedItem().toString();   
-       switch (choix)
-       {
-           case "Titre" :  if( jPanel13.isEnabled()) { try {     // trie TOUS par titre
-            St =Maconnexion.createStatement();
-            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID order by Titre ");
-           jTable11.setModel(DbUtils.resultSetToTableModel(Rs));
-        }
-        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
-        }} 
-            if (jPanel21.isEnabled()) { try {    //trie PUBLICS par titre
-          St = Maconnexion.createStatement();
-          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'public'");
-         jTable12.setModel(DbUtils.resultSetToTableModel(Rs));
-      }
-      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
-      }
-            if (jPanel22.isEnabled()) {      try {    //trie PRIVES par titre
-          St = Maconnexion.createStatement();
-          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'privé'");
-         jTable13.setModel(DbUtils.resultSetToTableModel(Rs));
-      }
-      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
-      }     
-                   }
-               
-           }
-           case "Thème" :  if( jPanel13.isEnabled()){try {    //trie TOUS par thème
-               St = Maconnexion.createStatement();
-               Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID order by Thème ");
-           jTable11.setModel(DbUtils.resultSetToTableModel(Rs));
-        }
-        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
-        }
-           }
-          if (jPanel21.isEnabled()) { try {    //trie PUBLICS par thème
-          St = Maconnexion.createStatement();
-          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'public' order by Thème");
-         jTable12.setModel(DbUtils.resultSetToTableModel(Rs));
-      }
-      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
-      } 
-          }
-           if (jPanel22.isEnabled())  {  try {   //trie PRIVES par thème
-          St = Maconnexion.createStatement();
-          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'privé' order by Thème");
-         jTable13.setModel(DbUtils.resultSetToTableModel(Rs));
-      }
-      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
-      }
-           }
-           
-           case "Secteur" : if( jPanel13.isEnabled()){try {   //trie TOUS par secteur
-            St =Maconnexion.createStatement();
-            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID order by Secteur ");
-           jTable11.setModel(DbUtils.resultSetToTableModel(Rs));
-        }
-        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
-        }
-           }
-          if (jPanel21.isEnabled()) { try {   //trie PUBLICS par secteur
-          St = Maconnexion.createStatement();
-          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'public' order by Secteur");
-         jTable12.setModel(DbUtils.resultSetToTableModel(Rs));
-      }
-      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
-      } 
-          }
-           if (jPanel22.isEnabled())  {  try {   //trie PRIVES par secteur
-          St = Maconnexion.createStatement();
-          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'privé' order by Secteur");
-         jTable13.setModel(DbUtils.resultSetToTableModel(Rs));
-      }
-      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
-      }
-           }
-           case "Date" : if( jPanel13.isEnabled()){try {    //trie TOUS par date
-            St =Maconnexion.createStatement();
-            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID order by DateEvent ");
-           jTable11.setModel(DbUtils.resultSetToTableModel(Rs));
-        }
-        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
-        }
-           }
-          if (jPanel21.isEnabled()) { try {    //trie PUBLICS par date
-          St = Maconnexion.createStatement();
-          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'public' order by DateEvent");
-         jTable12.setModel(DbUtils.resultSetToTableModel(Rs));
-      }
-      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
-      } 
-          }
-           if (jPanel22.isEnabled())  {  try {     //trie PRIVES par date
-          St = Maconnexion.createStatement();
-          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'privé' order by DateEvent");
-         jTable13.setModel(DbUtils.resultSetToTableModel(Rs));
-      }
-      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
-      }
-           }
-           
-           case "Lieu" :   if( jPanel13.isEnabled()){try {    //trie TOUS par lieu
-            St =Maconnexion.createStatement();
-            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID order by Lieu ");
-           jTable11.setModel(DbUtils.resultSetToTableModel(Rs));
-        }
-        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
-        }
-           }
-          if (jPanel21.isEnabled()) { try {    //trie PUBLICS par Lieu
-          St = Maconnexion.createStatement();
-          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'public' order by Lieu");
-         jTable12.setModel(DbUtils.resultSetToTableModel(Rs));
-      }
-      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
-      } 
-          }
-           if (jPanel22.isEnabled())  {  try {     //trie PRIVES par Lieu
-          St = Maconnexion.createStatement();
-          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'privé' order by Lieu");
-         jTable13.setModel(DbUtils.resultSetToTableModel(Rs));
-      }
-      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
-      }
-           }
-           
-           case "Organisateur" :  if( jPanel13.isEnabled()){try {    //trie TOUS par organisateur
-            St =Maconnexion.createStatement();
-            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID order by Organisateur ");
-           jTable11.setModel(DbUtils.resultSetToTableModel(Rs));
-        }
-        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
-        }
-           }
-          if (jPanel21.isEnabled()) { try {    //trie PUBLICS par Organisateur
-          St = Maconnexion.createStatement();
-          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'public' order by Organisateur");
-         jTable12.setModel(DbUtils.resultSetToTableModel(Rs));
-      }
-      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
-      } 
-          }
-           if (jPanel22.isEnabled())  {  try {     //trie PRIVES par Organisateur
-          St = Maconnexion.createStatement();
-          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'privé' order by Organisateur");
-         jTable13.setModel(DbUtils.resultSetToTableModel(Rs));
-      }
-      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
-      }
-           }
-       }
+//         Statement St ;
+//        ResultSet Rs = null ;
+//        String choix = jComboBox1.getSelectedItem().toString();   
+//       switch (choix)
+//       {
+//           case "Titre" :  if( jPanel13.isEnabled()) { try {     // trie TOUS par titre
+//            St =Maconnexion.createStatement();
+//            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID order by Titre ");
+//           jTable11.setModel(DbUtils.resultSetToTableModel(Rs));
+//        }
+//        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+//        }} 
+//            if (jPanel21.isEnabled()) { try {    //trie PUBLICS par titre
+//          St = Maconnexion.createStatement();
+//          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'public'");
+//         jTable12.setModel(DbUtils.resultSetToTableModel(Rs));
+//      }
+//      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+//      }
+//            if (jPanel22.isEnabled()) {      try {    //trie PRIVES par titre
+//          St = Maconnexion.createStatement();
+//          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'privé'");
+//         jTable13.setModel(DbUtils.resultSetToTableModel(Rs));
+//      }
+//      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+//      }     
+//                   }
+//               
+//           }
+//           case "Thème" :  if( jPanel13.isEnabled()){try {    //trie TOUS par thème
+//               St = Maconnexion.createStatement();
+//               Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID order by Thème ");
+//           jTable11.setModel(DbUtils.resultSetToTableModel(Rs));
+//        }
+//        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+//        }
+//           }
+//          if (jPanel21.isEnabled()) { try {    //trie PUBLICS par thème
+//          St = Maconnexion.createStatement();
+//          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'public' order by Thème");
+//         jTable12.setModel(DbUtils.resultSetToTableModel(Rs));
+//      }
+//      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+//      } 
+//          }
+//           if (jPanel22.isEnabled())  {  try {   //trie PRIVES par thème
+//          St = Maconnexion.createStatement();
+//          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'privé' order by Thème");
+//         jTable13.setModel(DbUtils.resultSetToTableModel(Rs));
+//      }
+//      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+//      }
+//           }
+//           
+//           case "Secteur" : if( jPanel13.isEnabled()){try {   //trie TOUS par secteur
+//            St =Maconnexion.createStatement();
+//            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID order by Secteur ");
+//           jTable11.setModel(DbUtils.resultSetToTableModel(Rs));
+//        }
+//        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+//        }
+//           }
+//          if (jPanel21.isEnabled()) { try {   //trie PUBLICS par secteur
+//          St = Maconnexion.createStatement();
+//          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'public' order by Secteur");
+//         jTable12.setModel(DbUtils.resultSetToTableModel(Rs));
+//      }
+//      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+//      } 
+//          }
+//           if (jPanel22.isEnabled())  {  try {   //trie PRIVES par secteur
+//          St = Maconnexion.createStatement();
+//          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'privé' order by Secteur");
+//         jTable13.setModel(DbUtils.resultSetToTableModel(Rs));
+//      }
+//      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+//      }
+//           }
+//           case "Date" : if( jPanel13.isEnabled()){try {    //trie TOUS par date
+//            St =Maconnexion.createStatement();
+//            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID order by DateEvent ");
+//           jTable11.setModel(DbUtils.resultSetToTableModel(Rs));
+//        }
+//        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+//        }
+//           }
+//          if (jPanel21.isEnabled()) { try {    //trie PUBLICS par date
+//          St = Maconnexion.createStatement();
+//          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'public' order by DateEvent");
+//         jTable12.setModel(DbUtils.resultSetToTableModel(Rs));
+//      }
+//      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+//      } 
+//          }
+//           if (jPanel22.isEnabled())  {  try {     //trie PRIVES par date
+//          St = Maconnexion.createStatement();
+//          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'privé' order by DateEvent");
+//         jTable13.setModel(DbUtils.resultSetToTableModel(Rs));
+//      }
+//      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+//      }
+//           }
+//           
+//           case "Lieu" :   if( jPanel13.isEnabled()){try {    //trie TOUS par lieu
+//            St =Maconnexion.createStatement();
+//            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID order by Lieu ");
+//           jTable11.setModel(DbUtils.resultSetToTableModel(Rs));
+//        }
+//        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+//        }
+//           }
+//          if (jPanel21.isEnabled()) { try {    //trie PUBLICS par Lieu
+//          St = Maconnexion.createStatement();
+//          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'public' order by Lieu");
+//         jTable12.setModel(DbUtils.resultSetToTableModel(Rs));
+//      }
+//      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+//      } 
+//          }
+//           if (jPanel22.isEnabled())  {  try {     //trie PRIVES par Lieu
+//          St = Maconnexion.createStatement();
+//          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'privé' order by Lieu");
+//         jTable13.setModel(DbUtils.resultSetToTableModel(Rs));
+//      }
+//      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+//      }
+//           }
+//           
+//           case "Organisateur" :  if( jPanel13.isEnabled()){try {    //trie TOUS par organisateur
+//            St =Maconnexion.createStatement();
+//            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID order by Organisateur ");
+//           jTable11.setModel(DbUtils.resultSetToTableModel(Rs));
+//        }
+//        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+//        }
+//           }
+//          if (jPanel21.isEnabled()) { try {    //trie PUBLICS par Organisateur
+//          St = Maconnexion.createStatement();
+//          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'public' order by Organisateur");
+//         jTable12.setModel(DbUtils.resultSetToTableModel(Rs));
+//      }
+//      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+//      } 
+//          }
+//           if (jPanel22.isEnabled())  {  try {     //trie PRIVES par Organisateur
+//          St = Maconnexion.createStatement();
+//          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'privé' order by Organisateur");
+//         jTable13.setModel(DbUtils.resultSetToTableModel(Rs));
+//      }
+//      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+//      }
+//           }
+//       }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
@@ -642,16 +418,6 @@ public class EspaceChef extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DiscoChef;
     private javax.swing.JPanel EspaceChef;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton29;
-    private javax.swing.JButton jButton30;
-    private javax.swing.JButton jButton31;
-    private javax.swing.JButton jButton33;
-    private javax.swing.JButton jButton37;
-    private javax.swing.JButton jButton39;
-    private com.toedter.calendar.JCalendar jCalendar2;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
@@ -660,53 +426,43 @@ public class EspaceChef extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel25;
-    private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane12;
-    private javax.swing.JScrollPane jScrollPane13;
-    private javax.swing.JScrollPane jScrollPane14;
-    private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTable jTable11;
-    private javax.swing.JTable jTable12;
-    private javax.swing.JTable jTable13;
-    private javax.swing.JTable jTable14;
-    private javax.swing.JTable jTable19;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 
     private void updateJtable11_Event() {
-        Statement St ;
-        ResultSet Rs = null ;
-        try {
-            St =Maconnexion.createStatement();
-            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent Date,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID");
-           jTable11.setModel(DbUtils.resultSetToTableModel(Rs));
-        }
-        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);}
+//        Statement St ;
+//        ResultSet Rs = null ;
+//        try {
+//            St =Maconnexion.createStatement();
+//            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent Date,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID");
+//           jTable11.setModel(DbUtils.resultSetToTableModel(Rs));
+//        }
+//        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);}
     }
 
     private void updateJtable12_Event() {
-      Statement St;
-      ResultSet Rs = null;
-      try {
-          St = Maconnexion.createStatement();
-          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent Date,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'public'");
-         jTable12.setModel(DbUtils.resultSetToTableModel(Rs));
-      }
-      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
-      }
+//      Statement St;
+//      ResultSet Rs = null;
+//      try {
+//          St = Maconnexion.createStatement();
+//          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent Date,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'public'");
+//         jTable12.setModel(DbUtils.resultSetToTableModel(Rs));
+//      }
+//      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+//      }
       }
 
     private void updateJtable13_Event() {
-        Statement St;
-      ResultSet Rs = null;
-      try {
-          St = Maconnexion.createStatement();
-          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent Date,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'privé'");
-         jTable13.setModel(DbUtils.resultSetToTableModel(Rs));
-      }
-      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
-      }
+//        Statement St;
+//      ResultSet Rs = null;
+//      try {
+//          St = Maconnexion.createStatement();
+//          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent Date,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'privé'");
+//         jTable13.setModel(DbUtils.resultSetToTableModel(Rs));
+//      }
+//      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+//      }
     }
 
  

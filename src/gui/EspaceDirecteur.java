@@ -19,14 +19,16 @@ import net.proteanit.sql.DbUtils;
  * @author Sarah LOTFI
  */
 public class EspaceDirecteur extends javax.swing.JPanel {
+        private int IdUser;
 
      Connexion con = new Connexion();
    Connection Maconnexion;
     /**
      * Creates new form EspaceDirecteur
      */
-    public EspaceDirecteur() {
+    public EspaceDirecteur(int Id) {
         initComponents();
+        IdUser=Id;
           Maconnexion = con.getMaconnexion();
         updateJtable15_Event();
         updateJtable17_Event();
@@ -45,10 +47,6 @@ public class EspaceDirecteur extends javax.swing.JPanel {
         EspaceChef1 = new javax.swing.JPanel();
         jTabbedPane5 = new javax.swing.JTabbedPane();
         jPanel14 = new javax.swing.JPanel();
-        jScrollPane15 = new javax.swing.JScrollPane();
-        jTable15 = new javax.swing.JTable();
-        jButton23 = new javax.swing.JButton();
-        jButton32 = new javax.swing.JButton();
         jPanel24 = new javax.swing.JPanel();
         jScrollPane17 = new javax.swing.JScrollPane();
         jTable17 = new javax.swing.JTable();
@@ -75,57 +73,19 @@ public class EspaceDirecteur extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox();
 
-        jTable15.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Titre", "Secteur", "Thème", "Date", "Lieu", "Description", "Organisateur"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane15.setViewportView(jTable15);
-
-        jButton23.setText("S'inscrire");
-
-        jButton32.setText("Se désinscrire");
-
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addComponent(jButton23)
-                .addGap(75, 75, 75)
-                .addComponent(jButton32)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 562, Short.MAX_VALUE)
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton23)
-                    .addComponent(jButton32))
-                .addContainerGap())
+            .addGap(0, 257, Short.MAX_VALUE)
         );
+
+        listeEvenement E=new listeEvenement(IdUser,"select * from event");
+        jPanel14.add(E);
 
         jTabbedPane5.addTab("Tous", jPanel14);
 
@@ -174,7 +134,7 @@ public class EspaceDirecteur extends javax.swing.JPanel {
             .addGroup(jPanel24Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton34)
                     .addComponent(jButton35))
@@ -228,7 +188,7 @@ public class EspaceDirecteur extends javax.swing.JPanel {
             .addGroup(jPanel26Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton36)
                     .addComponent(jButton38))
@@ -330,7 +290,7 @@ public class EspaceDirecteur extends javax.swing.JPanel {
             .addGroup(jPanel28Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton43)
                     .addComponent(jButton44))
@@ -399,12 +359,13 @@ public class EspaceDirecteur extends javax.swing.JPanel {
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(EspaceChef1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(EspaceChef1Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(jCalendar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(17, 17, 17))
+                        .addComponent(jCalendar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChef1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -420,7 +381,7 @@ public class EspaceDirecteur extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 346, Short.MAX_VALUE)
+            .addGap(0, 407, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -444,8 +405,6 @@ public class EspaceDirecteur extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DiscoChef1;
     private javax.swing.JPanel EspaceChef1;
-    private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
@@ -462,13 +421,11 @@ public class EspaceDirecteur extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
-    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane21;
     private javax.swing.JTabbedPane jTabbedPane5;
-    private javax.swing.JTable jTable15;
     private javax.swing.JTable jTable17;
     private javax.swing.JTable jTable18;
     private javax.swing.JTable jTable20;
@@ -477,14 +434,14 @@ public class EspaceDirecteur extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void updateJtable15_Event() {
-       Statement St ;
-        ResultSet Rs = null ;
-        try {
-            St =Maconnexion.createStatement();
-            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID");
-           jTable15.setModel(DbUtils.resultSetToTableModel(Rs));
-        }
-        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);}
+//       Statement St ;
+//        ResultSet Rs = null ;
+//        try {
+//            St =Maconnexion.createStatement();
+//            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID");
+//           jTable15.setModel(DbUtils.resultSetToTableModel(Rs));
+//        }
+//        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);}
     }
 
     private void updateJtable17_Event() {

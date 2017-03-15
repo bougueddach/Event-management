@@ -204,29 +204,32 @@ public class Authentify extends javax.swing.JPanel {
                                 case "Chef" :
                                     SwingUtilities.getWindowAncestor(this).dispose();
                                     JOptionPane.showMessageDialog(null ,"Bienvenue Chef !! " );
-                                    EspaceChef Ec = new EspaceChef();
-                                    Ec.setSize(1300, 500);
-                                    this.removeAll();
-                                    this.add(Ec);
-                                    this.setVisible(true);
+                                    GUI G1=new GUI();
+                                    EspaceChef Ec = new EspaceChef(id);
+                                    Ec.setSize(1000, 500);
+                                    G1.add(Ec);
+                                    G1.setSize(1000, 500);
+                                    G1.setVisible(true);
                                     break;
                                 case "Directeur":
                                     SwingUtilities.getWindowAncestor(this).dispose();
                                     JOptionPane.showMessageDialog(null ,"Bienvenidos Director !! " );
-                                    EspaceDirecteur Ed =new EspaceDirecteur() ;
-                                    Ed.setSize(1300, 500);
-                                    this.removeAll();
-                                    this.add(Ed);
-                                    this.setVisible(true);
+                                    GUI G2=new GUI();
+                                    EspaceDirecteur Ed =new EspaceDirecteur(id);
+                                    Ed.setSize(1000, 500);
+                                    G2.add(Ed);
+                                    G2.setSize(1000, 500);
+                                    G2.setVisible(true);
                                     break;
                                 default : 
                                     SwingUtilities.getWindowAncestor(this).dispose();
                                     JOptionPane.showMessageDialog(null ,"Bienvenue !! " );
-                                    EspaceEmploye Ee = new EspaceEmploye() ;
-                                    Ee.setSize(1300, 500);
-                                    this.removeAll();
-                                    this.add(Ee);
-                                    this.setVisible(true);
+                                    GUI G3=new GUI();
+                                    EspaceEmploye Ee = new EspaceEmploye(id) ;
+                                    Ee.setSize(1000, 500);
+                                    G3.add(Ee);
+                                    G3.setSize(1000, 500);
+                                    G3.setVisible(true);
                                     break;
                             }
                             }

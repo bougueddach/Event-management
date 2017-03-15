@@ -19,13 +19,15 @@ import net.proteanit.sql.DbUtils;
  * @author Sarah LOTFI
  */
 public class EspaceEmploye extends javax.swing.JPanel {
+        private int IdUser;
 Connexion con = new Connexion();
    Connection Maconnexion;
     /**
      * Creates new form EspaceEmploye
      */
-    public EspaceEmploye() {
+    public EspaceEmploye(int Id) {
         initComponents();
+        IdUser=Id;
         Maconnexion = con.getMaconnexion();
         updateJtable7_Event();
         updateJtable22_Event();
@@ -44,11 +46,6 @@ Connexion con = new Connexion();
         EspaceEmploye = new javax.swing.JPanel();
         jTabbedPane7 = new javax.swing.JTabbedPane();
         jPanel15 = new javax.swing.JPanel();
-        jPanel16 = new javax.swing.JPanel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTable7 = new javax.swing.JTable();
-        jButton24 = new javax.swing.JButton();
-        jButton25 = new javax.swing.JButton();
         jPanel17 = new javax.swing.JPanel();
         jScrollPane22 = new javax.swing.JScrollPane();
         jTable22 = new javax.swing.JTable();
@@ -71,70 +68,15 @@ Connexion con = new Connexion();
         jLabel12 = new javax.swing.JLabel();
         jCalendar1 = new com.toedter.calendar.JCalendar();
 
-        jTable7.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Titre", "Secteur", "Thème", "Date", "Lieu", "Description", "Organisateur"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane7.setViewportView(jTable7);
-
-        jButton24.setText("S'inscrire");
-
-        jButton25.setText("Se désinscrire");
-
-        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(188, 188, 188)
-                .addComponent(jButton24)
-                .addGap(64, 64, 64)
-                .addComponent(jButton25)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-        );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton24)
-                    .addComponent(jButton25))
-                .addGap(22, 22, 22))
-        );
-
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 670, Short.MAX_VALUE)
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 170, Short.MAX_VALUE)
         );
 
         jTabbedPane7.addTab("Tous", jPanel15);
@@ -424,8 +366,6 @@ Connexion con = new Connexion();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DiscoChef2;
     private javax.swing.JPanel EspaceEmploye;
-    private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton45;
     private javax.swing.JButton jButton46;
     private javax.swing.JButton jButton47;
@@ -437,31 +377,28 @@ Connexion con = new Connexion();
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel29;
     private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane23;
     private javax.swing.JScrollPane jScrollPane24;
-    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane7;
     private javax.swing.JTable jTable22;
     private javax.swing.JTable jTable23;
     private javax.swing.JTable jTable24;
-    private javax.swing.JTable jTable7;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
     private void updateJtable7_Event() {
-         Statement St ;
-        ResultSet Rs = null ;
-        try {
-            St =Maconnexion.createStatement();
-            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID");
-           jTable7.setModel(DbUtils.resultSetToTableModel(Rs));
-        }
-        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);}
+//         Statement St ;
+//        ResultSet Rs = null ;
+//        try {
+//            St =Maconnexion.createStatement();
+//            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID");
+//           jTable7.setModel(DbUtils.resultSetToTableModel(Rs));
+//        }
+//        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);}
     }
 
     private void updateJtable22_Event() {

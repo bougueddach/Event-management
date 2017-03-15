@@ -21,7 +21,6 @@ import net.proteanit.sql.DbUtils;
  * @author Sarah LOTFI
  */
 public class EspaceAdmin extends javax.swing.JPanel {
-    
     /**
      * Creates new form EspaceAdmin
      */
@@ -413,7 +412,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceAdmin2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Disconnect2)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
@@ -432,7 +431,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(EspaceAdmin2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
