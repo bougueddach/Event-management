@@ -251,7 +251,7 @@ public class CreateEvent extends javax.swing.JPanel {
         DeptPanel.setSize(360, 80);
         Insets insets = this.getInsets();
         Dimension size = DescPanel.getPreferredSize();
-        DescPanel.setBounds(25 + insets.left, 400 + insets.top,size.width+100, size.height);
+        DescPanel.setBounds(25 + insets.left, 350 + insets.top,size.width+200, size.height+50);
     }//GEN-LAST:event_jRadioButton3MouseClicked
 
     private void jRadioButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton4MouseClicked
