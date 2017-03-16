@@ -60,6 +60,7 @@ public class EspaceChef extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
+        CreatEventButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -157,6 +158,13 @@ public class EspaceChef extends javax.swing.JPanel {
             }
         });
 
+        CreatEventButton.setText("Créer un événement");
+        CreatEventButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreatEventButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout EspaceChefLayout = new javax.swing.GroupLayout(EspaceChef);
         EspaceChef.setLayout(EspaceChefLayout);
         EspaceChefLayout.setHorizontalGroup(
@@ -164,7 +172,7 @@ public class EspaceChef extends javax.swing.JPanel {
             .addGroup(EspaceChefLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 259, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(162, 162, 162)
                 .addComponent(DiscoChef)
@@ -179,7 +187,9 @@ public class EspaceChef extends javax.swing.JPanel {
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChefLayout.createSequentialGroup()
                         .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(295, 295, 295))))
+                        .addGap(52, 52, 52)
+                        .addComponent(CreatEventButton)
+                        .addGap(146, 146, 146))))
         );
         EspaceChefLayout.setVerticalGroup(
             EspaceChefLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,8 +206,13 @@ public class EspaceChef extends javax.swing.JPanel {
                 .addGroup(EspaceChefLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(EspaceChefLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(EspaceChefLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(EspaceChefLayout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(CreatEventButton)))
                 .addContainerGap())
         );
 
@@ -205,7 +220,7 @@ public class EspaceChef extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 937, Short.MAX_VALUE)
+            .addGap(0, 949, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -414,8 +429,20 @@ public class EspaceChef extends javax.swing.JPanel {
           }
     }//GEN-LAST:event_jTextField9KeyPressed
 
+    private void CreatEventButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreatEventButtonActionPerformed
+        SwingUtilities.getWindowAncestor(this).enable(false);
+        SwingUtilities.getWindowAncestor(this).enable();
+        GUI G=new GUI();
+        CreateEvent C=new CreateEvent();
+        C.setSize(1300, 500);
+        G.add(C);
+        G.setSize(500, 500);
+        G.setVisible(true);
+    }//GEN-LAST:event_CreatEventButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CreatEventButton;
     private javax.swing.JButton DiscoChef;
     private javax.swing.JPanel EspaceChef;
     private javax.swing.JComboBox jComboBox1;

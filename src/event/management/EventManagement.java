@@ -20,22 +20,12 @@ public class EventManagement {
      */
     public static void main(String[] args) {
         
-//        GUI G=new GUI();
-//        G.setSize(1000, 500);
-//        Authentify A=new Authentify();
-//        A.setSize(1000, 500);
-//        G.add(A);
-//        G.setVisible(true);
         GUI G=new GUI();
-        G.setSize(500, 800);
-        CreateEvent C=new CreateEvent();
-        C.setSize(500, 800);
-        G.add(C);
+        G.setSize(1000, 500);
+        Authentify A=new Authentify();
+        A.setSize(1000, 500);
+        G.add(A);
         G.setVisible(true);
-        
-        
-
-        
     }
     
 }

@@ -69,9 +69,9 @@ public class EspaceDirecteur extends javax.swing.JPanel {
         jTextField10 = new javax.swing.JTextField();
         DiscoChef1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jCalendar3 = new com.toedter.calendar.JCalendar();
         jLabel10 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox();
+        CreatEventButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -315,6 +315,13 @@ public class EspaceDirecteur extends javax.swing.JPanel {
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Titre", "Secteur", "Thème", "Date", "Lieu", "Organisateur" }));
 
+        CreatEventButton.setText("Créer un événement");
+        CreatEventButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreatEventButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout EspaceChef1Layout = new javax.swing.GroupLayout(EspaceChef1);
         EspaceChef1.setLayout(EspaceChef1Layout);
         EspaceChef1Layout.setHorizontalGroup(
@@ -330,11 +337,11 @@ public class EspaceDirecteur extends javax.swing.JPanel {
                         .addComponent(DiscoChef1)
                         .addGap(31, 31, 31))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChef1Layout.createSequentialGroup()
-                        .addGap(0, 8, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jCalendar3, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGap(66, 66, 66)
+                        .addComponent(CreatEventButton)
+                        .addGap(79, 79, 79))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChef1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -359,20 +366,19 @@ public class EspaceDirecteur extends javax.swing.JPanel {
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(EspaceChef1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jCalendar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChef1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(EspaceChef1Layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(CreatEventButton)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 879, Short.MAX_VALUE)
+            .addGap(0, 931, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -401,8 +407,19 @@ public class EspaceDirecteur extends javax.swing.JPanel {
         G.setVisible(true);
     }//GEN-LAST:event_DiscoChef1ActionPerformed
 
+    private void CreatEventButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreatEventButtonActionPerformed
+        SwingUtilities.getWindowAncestor(this).enable(false);
+        GUI G=new GUI();
+        CreateEvent C=new CreateEvent();
+        C.setSize(1300, 500);
+        G.add(C);
+        G.setSize(500, 500);
+        G.setVisible(true);
+    }//GEN-LAST:event_CreatEventButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CreatEventButton;
     private javax.swing.JButton DiscoChef1;
     private javax.swing.JPanel EspaceChef1;
     private javax.swing.JButton jButton34;
@@ -412,7 +429,6 @@ public class EspaceDirecteur extends javax.swing.JPanel {
     private javax.swing.JButton jButton40;
     private javax.swing.JButton jButton43;
     private javax.swing.JButton jButton44;
-    private com.toedter.calendar.JCalendar jCalendar3;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
