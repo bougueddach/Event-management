@@ -255,15 +255,14 @@ public class Authentify extends javax.swing.JPanel {
         {
             if(Admincon.getText().equalsIgnoreCase("ADMIN") )
             {
-                JOptionPane.showMessageDialog(null ,"Admin connectée avec succée !! " );
                 SwingUtilities.getWindowAncestor(this).dispose();
+                JOptionPane.showMessageDialog(null ,"Admin connectée avec succée !! " );
                 GUI G=new GUI();
                 G.setSize(1000, 500);
-                G.setVisible(true);
                 EspaceAdmin Ea= new EspaceAdmin();
                 Ea.setSize(1000, 500);
                 G.add(Ea);
-                
+                G.setVisible(true);                
             }
             else
             {

@@ -29,7 +29,9 @@ public class EspaceDirecteur extends javax.swing.JPanel {
     public EspaceDirecteur(int Id) {
         initComponents();
         IdUser=Id;
-          Maconnexion = con.getMaconnexion();
+        Maconnexion = con.getMaconnexion();
+        listeEvenement E=new listeEvenement(IdUser,"-","select * from event");
+        jPanel14.add(E);
         updateJtable15_Event();
         updateJtable17_Event();
         updateJtable18_Event();
@@ -83,9 +85,6 @@ public class EspaceDirecteur extends javax.swing.JPanel {
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 257, Short.MAX_VALUE)
         );
-
-        listeEvenement E=new listeEvenement(IdUser,"select * from event");
-        jPanel14.add(E);
 
         jTabbedPane5.addTab("Tous", jPanel14);
 
@@ -410,7 +409,7 @@ public class EspaceDirecteur extends javax.swing.JPanel {
     private void CreatEventButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreatEventButtonActionPerformed
         SwingUtilities.getWindowAncestor(this).enable(false);
         GUI G=new GUI();
-        CreateEvent C=new CreateEvent();
+        CreateEvent C=new CreateEvent(IdUser);
         C.setSize(1300, 500);
         G.add(C);
         G.setSize(500, 500);

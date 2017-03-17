@@ -26,6 +26,13 @@ public class EventManagement {
         A.setSize(1000, 500);
         G.add(A);
         G.setVisible(true);
+//        GUI G=new GUI();
+//        G.setSize(1000, 500);
+//        CreateEvent C=new CreateEvent();
+//        C.setSize(1000, 500);
+//        G.add(C);
+//        G.setVisible(true);
+        
     }
     
 }

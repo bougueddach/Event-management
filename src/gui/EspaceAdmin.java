@@ -91,7 +91,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
         EspaceAdmin2 = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel10 = new javax.swing.JPanel();
-        jTextField7 = new javax.swing.JTextField();
+        SearchText = new javax.swing.JTextField();
         jScrollPane5 = new javax.swing.JScrollPane();
         TableEmploye = new javax.swing.JTable();
         jButton16 = new javax.swing.JButton();
@@ -121,7 +121,11 @@ public class EspaceAdmin extends javax.swing.JPanel {
         jTextDept = new javax.swing.JTextField();
         Disconnect2 = new javax.swing.JButton();
 
-        jTextField7.setText("Rechercher");
+        SearchText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                SearchTextKeyTyped(evt);
+            }
+        });
 
         TableEmploye.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -286,23 +290,23 @@ public class EspaceAdmin extends javax.swing.JPanel {
                 .addComponent(TriEmp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(SearchText, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton16)
                 .addGap(125, 125, 125))
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(ModifierEmploye)
-                        .addGap(119, 119, 119)
-                        .addComponent(DeleteEmploye)
-                        .addGap(200, 200, 200))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addComponent(ModifierEmploye)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(DeleteEmploye)
+                        .addGap(132, 132, 132)))
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(104, 104, 104))
         );
@@ -313,7 +317,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TriEmp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SearchText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton16)
                     .addComponent(jButton1))
                 .addGap(17, 17, 17)
@@ -325,10 +329,12 @@ public class EspaceAdmin extends javax.swing.JPanel {
                             .addComponent(DeleteEmploye)
                             .addComponent(ModifierEmploye)))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addContainerGap(210, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Section Employés", jPanel10);
+
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable6.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -356,7 +362,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
         });
         jScrollPane6.setViewportView(jTable6);
 
-        jPanel12.add(jScrollPane6);
+        jPanel12.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 5, -1, 250));
 
         ButtonAjoutDept.setText("Ajouter département");
         ButtonAjoutDept.addActionListener(new java.awt.event.ActionListener() {
@@ -364,7 +370,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
                 ButtonAjoutDeptActionPerformed(evt);
             }
         });
-        jPanel12.add(ButtonAjoutDept);
+        jPanel12.add(ButtonAjoutDept, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, -1, -1));
 
         jButton20.setText("Supprimer");
         jButton20.addActionListener(new java.awt.event.ActionListener() {
@@ -372,10 +378,10 @@ public class EspaceAdmin extends javax.swing.JPanel {
                 jButton20ActionPerformed(evt);
             }
         });
-        jPanel12.add(jButton20);
+        jPanel12.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, -1, -1));
 
         jTextField8.setText("Rechercher");
-        jPanel12.add(jTextField8);
+        jPanel12.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 150, -1, -1));
 
         jButton21.setText("Modifier");
         jButton21.addActionListener(new java.awt.event.ActionListener() {
@@ -383,7 +389,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
                 jButton21ActionPerformed(evt);
             }
         });
-        jPanel12.add(jButton21);
+        jPanel12.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, -1, -1));
 
         jTextDept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -395,7 +401,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
                 jTextDeptKeyPressed(evt);
             }
         });
-        jPanel12.add(jTextDept);
+        jPanel12.add(jTextDept, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, 120, -1));
 
         jTabbedPane3.addTab("Section départements", jPanel12);
 
@@ -412,7 +418,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
             EspaceAdmin2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EspaceAdmin2Layout.createSequentialGroup()
                 .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 863, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 14, Short.MAX_VALUE))
+                .addGap(0, 6, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceAdmin2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Disconnect2)
@@ -441,7 +447,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(EspaceAdmin2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -505,9 +511,10 @@ public class EspaceAdmin extends javax.swing.JPanel {
         String prenom=TableEmploye.getModel().getValueAt(TableEmploye.getSelectedRow(),2).toString();
         String poste=TableEmploye.getModel().getValueAt(TableEmploye.getSelectedRow(),3).toString();
         String dept=TableEmploye.getModel().getValueAt(TableEmploye.getSelectedRow(),4).toString();
-//        A.ModifierE(Id , poste, nom, prenom, D.getIDdept(dept));
-        A.ModifierE(40 , "boss", "saadi", "halima", 2);
+        A.ModifierE(Id , poste, nom, prenom, D.getIDdept(dept));
+        JOptionPane.showMessageDialog(null, "Employée modifié avec succée");
         updateJTable5_Employe("Id");
+        ModifierEmploye.setEnabled(false);
     }//GEN-LAST:event_ModifierEmployeActionPerformed
 
     private void DeleteEmployeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEmployeActionPerformed
@@ -525,12 +532,18 @@ public class EspaceAdmin extends javax.swing.JPanel {
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         jPanel3.setVisible(true);
-        
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void AddEmployeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddEmployeActionPerformed
         Admin A= new Admin();
-        A.AjouterE(Text_PwdEmploye.getText(), Text_PosteEmploye.getText(), Text_NomEmploye.getText(), Text_PrenomEmploye.getText(),comboBox_departement.getSelectedItem().toString());
+        if(   !Text_PwdEmploye.getText().isEmpty()
+           && !Text_PosteEmploye.getText().isEmpty()
+           && !Text_NomEmploye.getText().isEmpty()
+           && !Text_PrenomEmploye.getText().isEmpty() ){
+            A.AjouterE(Text_PwdEmploye.getText(), Text_PosteEmploye.getText(), Text_NomEmploye.getText(), Text_PrenomEmploye.getText(),comboBox_departement.getSelectedItem().toString());            
+        }else{
+            JOptionPane.showMessageDialog(null ," Une case est vide débil " ,"Warning",JOptionPane.WARNING_MESSAGE); 
+        }
         updateJTable5_Employe("Id");
     }//GEN-LAST:event_AddEmployeActionPerformed
 
@@ -562,6 +575,20 @@ public class EspaceAdmin extends javax.swing.JPanel {
         updateJTable5_Employe(TriEmp2.getSelectedItem().toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void SearchTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchTextKeyTyped
+        String S=SearchText.getText();
+        Statement St;
+        ResultSet Rs=null;
+        TableEmploye.removeAll();
+        try{
+            St=Maconnexion.createStatement();
+            Rs=St.executeQuery("select ID, Nom, Prenom, Poste, Nomdept from employe , departement where (employe.IDdept=departement.IDdept) and (instr(ID,'"+S+"')<>0 or instr(Nom,'"+S+"')<>0 or instr(Prenom,'"+S+"')<>0 or instr(Nomdept,'"+S+"')<>0 )");
+            TableEmploye.setModel(DbUtils.resultSetToTableModel(Rs));
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null ,"Probléme dans la selection des Employées !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_SearchTextKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddEmploye;
@@ -570,6 +597,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
     private javax.swing.JButton Disconnect2;
     private javax.swing.JPanel EspaceAdmin2;
     private javax.swing.JButton ModifierEmploye;
+    private javax.swing.JTextField SearchText;
     private javax.swing.JTable TableEmploye;
     private javax.swing.JTextField Text_NomEmploye;
     private javax.swing.JTextField Text_PosteEmploye;
@@ -594,7 +622,6 @@ public class EspaceAdmin extends javax.swing.JPanel {
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTable jTable6;
     private javax.swing.JTextField jTextDept;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }

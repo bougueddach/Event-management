@@ -23,9 +23,9 @@ import net.proteanit.sql.DbUtils;
  * @author Sarah LOTFI
  */
 public class EspaceChef extends javax.swing.JPanel {
-        private int IdUser;
+    private int IdUser;
     Connexion con = new Connexion();
-   Connection Maconnexion;
+    Connection Maconnexion;
 //   DefaultTableModel dm;
     /**
      * Creates new form EspaceChef
@@ -433,7 +433,7 @@ public class EspaceChef extends javax.swing.JPanel {
         SwingUtilities.getWindowAncestor(this).enable(false);
         SwingUtilities.getWindowAncestor(this).enable();
         GUI G=new GUI();
-        CreateEvent C=new CreateEvent();
+        CreateEvent C=new CreateEvent(IdUser);
         C.setSize(1300, 500);
         G.add(C);
         G.setSize(500, 500);

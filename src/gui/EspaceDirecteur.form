@@ -114,9 +114,6 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
           <SubComponents>
             <Container class="javax.swing.JPanel" name="jPanel14">
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="listeEvenement E=new listeEvenement(IdUser,&quot;select * from event&quot;);&#xa;jPanel14.add(E);"/>
-              </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Tous">

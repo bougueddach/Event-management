@@ -8,7 +8,12 @@ package gui;
 
 
 import event.management.Employe;
+import java.sql.*;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextField;
+import jdbc.Connexion;
 
 /**
  *
@@ -19,8 +24,11 @@ public class Evenement extends javax.swing.JPanel {
     /**
      * Creates new form Guiii
      */
+    Connexion con = new Connexion();
+    Connection Maconnexion;
     public Evenement(int Id, String X) {
         initComponents();
+        Maconnexion = con.getMaconnexion();
         IdUser=Id;
          this.Plus.setName(X);
         this.setSize(400,200);
@@ -141,7 +149,42 @@ public class Evenement extends javax.swing.JPanel {
 
     private void PlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlusActionPerformed
         Employe E=new Employe();
-        E.Inscrire(IdUser, Integer.parseInt(Plus.getName()));
+        switch(Plus.getText())
+        {
+            case "+" :E.Inscrire(IdUser, Integer.parseInt(Plus.getName()));break ;
+            case "-" :E.Desincrire(IdUser, Integer.parseInt(Plus.getName()));break;
+            case "Modifier" : CreateEvent Ev = new CreateEvent(IdUser , Plus.getName());
+            GUI G = new GUI();
+            G.setSize(300,500);
+            Ev.setSize(300,500);
+            Ev.setButton("Modifier");
+            Ev.setLabel("Modifier");
+            Statement St ;
+            ResultSet Rs =null ;
+            try {
+            St=Maconnexion.createStatement();          
+            Rs=St.executeQuery("select * from event where IDEvent = '"+Plus.getName()+"'");
+            if(Rs.first())
+            {
+                Ev.setTitre(Rs.getString(2));                
+                Ev.setType(Rs.getString(8));
+                Ev.setLieu(Rs.getString(6));
+                Ev.setSecteur(Rs.getString(3));
+                Ev.setTheme(Rs.getString(4));
+                Ev.setDescription(Rs.getString(7));
+                Ev.setDate(Rs.getDate(5));
+                Ev.setDeptPanel(Integer.parseInt(Plus.getName()));
+                G.add(Ev);
+                G.setVisible(true);                
+            }                            
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(listeEvenement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            break;
+            default :break;
+        }
+        
     }//GEN-LAST:event_PlusActionPerformed
     public void setName(String X)
     {
@@ -166,6 +209,18 @@ public class Evenement extends javax.swing.JPanel {
     public void setOrg(String X)
     {
         Org.setText(X);
+    }
+    public void setMoins()
+    {
+        Plus.setText("-");
+    }
+    public void setPlus()
+    {
+        Plus.setText("+");
+    }
+    public void setModif()
+    {
+        Plus.setText("Modifier");
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
