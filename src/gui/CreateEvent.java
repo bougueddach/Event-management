@@ -362,15 +362,34 @@ public class CreateEvent extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void ValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValiderActionPerformed
-        Statement St , St1 , St2 ;
-        ResultSet Rs=null , Rs1=null , Rs2=null;
+        Statement St , St1 , St2 , St3 , St4;
+        ResultSet Rs=null , Rs1=null , Rs2=null , Rs3=null , Rs4=null;
         
         try {
-            St=St1=St2=Maconnexion.createStatement(); 
+            St=St1=St2=St3=St4=Maconnexion.createStatement();
             java.sql.Date date = new java.sql.Date(Date.getDate().getTime());
             switch(Valider.getText())
                 {
-                    case "Valider" : St.executeUpdate("insert into event values ('"+Titre.getText()+"' , '"+Secteur.getText()+"' ,'"+Theme.getText()+"', '"+date+"' , '"+Lieu.getText()+"' , '"+Desc.getText()+"' , '"+((Public.isSelected()== true) ? "Public" : "Privée" )+"' , "+IDUser+" );");break;
+                    case "Valider" :
+                        
+                        St.executeUpdate("INSERT INTO `event`(`IDEvent`, `Titre`, `Secteur`, `Thème`, `DateEvent`, `Lieu`, `Description`, `Type`, `IDOrg`) VALUES ( null ,'"+Titre.getText()+"' , '"+Secteur.getText()+"' ,'"+Theme.getText()+"', '"+date+"' ,'"+Lieu.getText()+"' , '"+Desc.getText()+"' , '"+((Public.isSelected()== true) ? "Public" : "Privée" )+"' , '"+IDUser+"' );");
+                        Component[] DeptV=DeptPanel.getComponents();
+                        
+                        for(int i=0 ; i<DeptV.length ; i++)
+                        {                                
+                            if(((JCheckBox)DeptV[i]).isSelected())
+                            {
+                                Rs4=St4.executeQuery("select max(IDEvent) from event");
+                                String idev;
+                                    if(Rs4.first())
+                                    {idev = Rs4.getString(1);
+                                    Rs3=St3.executeQuery("select IDdept from departement where NomDept='"+((JCheckBox)DeptV[i]).getText()+"'");
+                                    if(Rs3.first())                                    
+                                    St3.executeUpdate("insert into eventdept values ('"+idev+"' , '"+Rs3.getString(1)+"')");
+                            }  }                          
+                        }
+                        break;
+                      
                     case "Modifier" :
                         
                         St.executeUpdate("UPDATE event SET  Titre='"+Titre.getText()+"', Secteur='"+Secteur.getText()+"' , Thème = '"+Theme.getText()+"', DateEvent= '"+date+"', Lieu='"+Lieu.getText()+"', Description ='"+Desc.getText()+"', Type= '"+((Public.isSelected()== true) ? "Public" : "Privée" )+"' WHERE IDEvent ='"+IDEv+"'");
@@ -394,7 +413,7 @@ public class CreateEvent extends javax.swing.JPanel {
                                     St2.executeUpdate("delete from eventdept where IDEvent='"+IDEv+"' and IDDept= '"+Rs2.getString(1)+"'");
                                  }
                             
-                        }                                  
+                        }                              
                         break;              
                     default : break ;
                 }  
