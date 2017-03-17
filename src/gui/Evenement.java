@@ -13,6 +13,7 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import jdbc.Connexion;
 
 /**
@@ -151,7 +152,10 @@ public class Evenement extends javax.swing.JPanel {
         Employe E=new Employe();
         switch(Plus.getText())
         {
-            case "+" :E.Inscrire(IdUser, Integer.parseInt(Plus.getName()));break ;
+            case "+" :
+                E.Inscrire(IdUser, Integer.parseInt(Plus.getName()));
+                
+                break ;
             case "-" :E.Desincrire(IdUser, Integer.parseInt(Plus.getName()));break;
             case "Modifier" : CreateEvent Ev = new CreateEvent(IdUser , Plus.getName());
             GUI G = new GUI();

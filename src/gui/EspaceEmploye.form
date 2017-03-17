@@ -47,7 +47,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTabbedPane7" alignment="0" min="-2" pref="691" max="-2" attributes="0"/>
+                      <Component id="AffichagePane" alignment="0" min="-2" pref="691" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jTextField1" min="-2" pref="114" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -97,7 +97,7 @@
                           <EmptySpace min="12" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jTabbedPane7" min="-2" pref="216" max="-2" attributes="0"/>
+                  <Component id="AffichagePane" min="-2" pref="216" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -111,7 +111,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JTabbedPane" name="jTabbedPane7">
+        <Container class="javax.swing.JTabbedPane" name="AffichagePane">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
           <SubComponents>

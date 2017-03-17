@@ -29,10 +29,8 @@ Connexion con = new Connexion();
         initComponents();
         IdUser=Id;
         Maconnexion = con.getMaconnexion();
-        updateJtable7_Event();
-        updateJtable22_Event();
-        updateJtable23_Event();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,7 +42,7 @@ Connexion con = new Connexion();
     private void initComponents() {
 
         EspaceEmploye = new javax.swing.JPanel();
-        jTabbedPane7 = new javax.swing.JTabbedPane();
+        AffichagePane = new javax.swing.JTabbedPane();
         jPanel15 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
         jScrollPane22 = new javax.swing.JScrollPane();
@@ -78,7 +76,7 @@ Connexion con = new Connexion();
             .addGap(0, 170, Short.MAX_VALUE)
         );
 
-        jTabbedPane7.addTab("Tous", jPanel15);
+        AffichagePane.addTab("Tous", jPanel15);
 
         jTable22.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -133,7 +131,7 @@ Connexion con = new Connexion();
                 .addGap(22, 22, 22))
         );
 
-        jTabbedPane7.addTab("Publics", jPanel17);
+        AffichagePane.addTab("Publics", jPanel17);
 
         jTable23.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -188,7 +186,7 @@ Connexion con = new Connexion();
                 .addGap(22, 22, 22))
         );
 
-        jTabbedPane7.addTab("Privés", jPanel20);
+        AffichagePane.addTab("Privés", jPanel20);
 
         jTable24.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -237,7 +235,7 @@ Connexion con = new Connexion();
                 .addGap(22, 22, 22))
         );
 
-        jTabbedPane7.addTab("Mes participations", jPanel29);
+        AffichagePane.addTab("Mes participations", jPanel29);
 
         DiscoChef2.setText("Déconnexion");
         DiscoChef2.addActionListener(new java.awt.event.ActionListener() {
@@ -268,7 +266,7 @@ Connexion con = new Connexion();
             EspaceEmployeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EspaceEmployeLayout.createSequentialGroup()
                 .addGroup(EspaceEmployeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AffichagePane, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(EspaceEmployeLayout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -306,7 +304,7 @@ Connexion con = new Connexion();
                             .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jTabbedPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AffichagePane, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63))
             .addGroup(EspaceEmployeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(EspaceEmployeLayout.createSequentialGroup()
@@ -354,6 +352,7 @@ Connexion con = new Connexion();
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane AffichagePane;
     private javax.swing.JButton DiscoChef2;
     private javax.swing.JPanel EspaceEmploye;
     private javax.swing.JButton jButton45;
@@ -372,47 +371,12 @@ Connexion con = new Connexion();
     private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane23;
     private javax.swing.JScrollPane jScrollPane24;
-    private javax.swing.JTabbedPane jTabbedPane7;
     private javax.swing.JTable jTable22;
     private javax.swing.JTable jTable23;
     private javax.swing.JTable jTable24;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
-    private void updateJtable7_Event() {
-//         Statement St ;
-//        ResultSet Rs = null ;
-//        try {
-//            St =Maconnexion.createStatement();
-//            Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID");
-//           jTable7.setModel(DbUtils.resultSetToTableModel(Rs));
-//        }
-//        catch (SQLException ex) { JOptionPane.showMessageDialog(null ,"Pb dans la requete de selection !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);}
-    }
-
-    private void updateJtable22_Event() {
-          Statement St;
-      ResultSet Rs = null;
-      try {
-          St = Maconnexion.createStatement();
-          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'public'");
-         jTable22.setModel(DbUtils.resultSetToTableModel(Rs));
-      }
-      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
-      }
-    }
-
-    private void updateJtable23_Event() {
-         Statement St;
-      ResultSet Rs = null;
-      try {
-          St = Maconnexion.createStatement();
-          Rs = St.executeQuery("select Titre,Secteur,Thème,DateEvent,Lieu,Description,concat( Nom,' ', Prenom) as Organisateur from event,employe where event.IDorg = employe.ID and event.Type = 'privé'");
-         jTable23.setModel(DbUtils.resultSetToTableModel(Rs));
-      }
-      catch (SQLException ex) { JOptionPane.showMessageDialog(null, "Pb dans la requete de selection !! "+ex.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
-      }
-    }
     
     
     

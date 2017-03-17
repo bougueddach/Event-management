@@ -411,8 +411,7 @@ public class CreateEvent extends javax.swing.JPanel {
                                     Rs2=St2.executeQuery("select IDdept from departement where NomDept='"+((JCheckBox)Dept[i]).getText()+"'");
                                     if(Rs2.first())
                                     St2.executeUpdate("delete from eventdept where IDEvent='"+IDEv+"' and IDDept= '"+Rs2.getString(1)+"'");
-                                 }
-                            
+                                 }                            
                         }                              
                         break;              
                     default : break ;

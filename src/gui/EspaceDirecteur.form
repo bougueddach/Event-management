@@ -58,7 +58,7 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="jTabbedPane5" min="-2" pref="583" max="-2" attributes="0"/>
+                          <Component id="AffichagePane" min="-2" pref="583" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                           <Component id="CreatEventButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
@@ -96,7 +96,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTabbedPane5" min="-2" pref="303" max="-2" attributes="0"/>
+                          <Component id="AffichagePane" min="-2" pref="303" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
@@ -109,11 +109,11 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JTabbedPane" name="jTabbedPane5">
+        <Container class="javax.swing.JTabbedPane" name="AffichagePane">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel14">
+            <Container class="javax.swing.JPanel" name="TousPanel">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Tous">
@@ -135,7 +135,7 @@
                 </DimensionLayout>
               </Layout>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel24">
+            <Container class="javax.swing.JPanel" name="PublicPanel">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Publics">
@@ -147,76 +147,17 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane17" pref="558" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
-                          <Component id="jButton34" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                          <Component id="jButton35" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="562" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane17" min="-2" pref="128" max="-2" attributes="0"/>
-                          <EmptySpace pref="88" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton34" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton35" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="257" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
-              <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane17">
-                  <AuxValues>
-                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                  </AuxValues>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JTable" name="jTable17">
-                      <Properties>
-                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="7" rowCount="4">
-                            <Column editable="true" title="Titre" type="java.lang.String"/>
-                            <Column editable="true" title="Secteur" type="java.lang.String"/>
-                            <Column editable="true" title="Th&#xe8;me" type="java.lang.String"/>
-                            <Column editable="true" title="Date" type="java.lang.String"/>
-                            <Column editable="true" title="Lieu" type="java.lang.String"/>
-                            <Column editable="true" title="Description" type="java.lang.String"/>
-                            <Column editable="true" title="Organisateur" type="java.lang.String"/>
-                          </Table>
-                        </Property>
-                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                        </Property>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Component class="javax.swing.JButton" name="jButton34">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="S&apos;inscrire"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton35">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Se d&#xe9;sinscrire"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel26">
+            <Container class="javax.swing.JPanel" name="PrivatePanel">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Priv&#xe9;s">
@@ -228,76 +169,17 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane18" pref="558" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
-                          <Component id="jButton36" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                          <Component id="jButton38" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="562" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane18" min="-2" pref="128" max="-2" attributes="0"/>
-                          <EmptySpace pref="88" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton36" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton38" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="257" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
-              <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane18">
-                  <AuxValues>
-                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                  </AuxValues>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JTable" name="jTable18">
-                      <Properties>
-                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="7" rowCount="4">
-                            <Column editable="true" title="Titre" type="java.lang.String"/>
-                            <Column editable="true" title="Secteur" type="java.lang.String"/>
-                            <Column editable="true" title="Th&#xe8;me" type="java.lang.String"/>
-                            <Column editable="true" title="Date" type="java.lang.String"/>
-                            <Column editable="true" title="Lieu" type="java.lang.String"/>
-                            <Column editable="true" title="Description" type="java.lang.String"/>
-                            <Column editable="true" title="Organisateur" type="java.lang.String"/>
-                          </Table>
-                        </Property>
-                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                        </Property>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Component class="javax.swing.JButton" name="jButton36">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="S&apos;inscrire"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton38">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Se d&#xe9;sinscrire"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel27">
+            <Container class="javax.swing.JPanel" name="ParticipationsPanel">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Mes participations">
@@ -309,66 +191,17 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane20" pref="558" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
-                          <Component id="jButton40" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="562" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane20" min="-2" pref="128" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButton40" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="257" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
-              <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane20">
-                  <AuxValues>
-                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                  </AuxValues>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JTable" name="jTable20">
-                      <Properties>
-                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="7" rowCount="4">
-                            <Column editable="true" title="Titre" type="java.lang.String"/>
-                            <Column editable="true" title="Secteur" type="java.lang.String"/>
-                            <Column editable="true" title="Th&#xe8;me" type="java.lang.String"/>
-                            <Column editable="true" title="Date" type="java.lang.String"/>
-                            <Column editable="true" title="Lieu" type="java.lang.String"/>
-                            <Column editable="true" title="Description" type="java.lang.String"/>
-                            <Column editable="true" title="Organisateur" type="java.lang.String"/>
-                          </Table>
-                        </Property>
-                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                        </Property>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Component class="javax.swing.JButton" name="jButton40">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Se d&#xe9;sinscrire"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel28">
+            <Container class="javax.swing.JPanel" name="MinePanel">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Mes &#xe9;v&#xe9;nements">
@@ -380,74 +213,15 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane21" pref="558" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
-                          <Component id="jButton43" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                          <Component id="jButton44" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="562" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane21" min="-2" pref="128" max="-2" attributes="0"/>
-                          <EmptySpace pref="88" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton43" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton44" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="257" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
-              <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane21">
-                  <AuxValues>
-                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                  </AuxValues>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JTable" name="jTable21">
-                      <Properties>
-                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="7" rowCount="4">
-                            <Column editable="true" title="Titre" type="java.lang.String"/>
-                            <Column editable="true" title="Secteur" type="java.lang.String"/>
-                            <Column editable="true" title="Th&#xe8;me" type="java.lang.String"/>
-                            <Column editable="true" title="Date" type="java.lang.String"/>
-                            <Column editable="true" title="Lieu" type="java.lang.String"/>
-                            <Column editable="true" title="Description" type="java.lang.String"/>
-                            <Column editable="true" title="Organisateur" type="java.lang.String"/>
-                          </Table>
-                        </Property>
-                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                        </Property>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Component class="javax.swing.JButton" name="jButton43">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Modifier"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton44">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Supprimer"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
             </Container>
           </SubComponents>
         </Container>

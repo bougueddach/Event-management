@@ -199,19 +199,6 @@ public class Authentify extends javax.swing.JPanel {
                             St1=Maconnexion.createStatement();
                             Rs1=St1.executeQuery("select Poste from employe where ID='"+id+"'");
                             if(Rs1.first()){
-                            switch(Rs1.getString(1))
-                            {
-                                case "Chef" :
-                                    SwingUtilities.getWindowAncestor(this).dispose();
-                                    JOptionPane.showMessageDialog(null ,"Bienvenue Chef !! " );
-                                    GUI G1=new GUI();
-                                    EspaceChef Ec = new EspaceChef(id);
-                                    Ec.setSize(1000, 500);
-                                    G1.add(Ec);
-                                    G1.setSize(1000, 500);
-                                    G1.setVisible(true);
-                                    break;
-                                case "Directeur":
                                     SwingUtilities.getWindowAncestor(this).dispose();
                                     JOptionPane.showMessageDialog(null ,"Bienvenidos Director !! " );
                                     GUI G2=new GUI();
@@ -220,28 +207,13 @@ public class Authentify extends javax.swing.JPanel {
                                     G2.add(Ed);
                                     G2.setSize(1000, 500);
                                     G2.setVisible(true);
-                                    break;
-                                default : 
-                                    SwingUtilities.getWindowAncestor(this).dispose();
-                                    JOptionPane.showMessageDialog(null ,"Bienvenue !! " );
-                                    GUI G3=new GUI();
-                                    EspaceEmploye Ee = new EspaceEmploye(id) ;
-                                    Ee.setSize(1000, 500);
-                                    G3.add(Ee);
-                                    G3.setSize(1000, 500);
-                                    G3.setVisible(true);
-                                    break;
                             }
-                            }
-                        }
-                        else
-                        {JOptionPane.showMessageDialog(null ,"Id ou mdp incorrect !! " ,"Warning",JOptionPane.WARNING_MESSAGE);}
-                    }
-                    else
-                    {JOptionPane.showMessageDialog(null ," Veuillez remplir le champ mot de passe  !! ","Warning",JOptionPane.WARNING_MESSAGE);}
-                }
-                else
-                {JOptionPane.showMessageDialog(null ," Veuillez remplir le champ identifiant  !! ","Warning",JOptionPane.WARNING_MESSAGE);}
+                        }else{
+                            JOptionPane.showMessageDialog(null ,"Id ou mdp incorrect !! " ,"Warning",JOptionPane.WARNING_MESSAGE);}
+                    }else{
+                        JOptionPane.showMessageDialog(null ," Veuillez remplir le champ mot de passe  !! ","Warning",JOptionPane.WARNING_MESSAGE);}
+                }else{
+                JOptionPane.showMessageDialog(null ," Veuillez remplir le champ identifiant  !! ","Warning",JOptionPane.WARNING_MESSAGE);}
             }
 
         } catch (SQLException ex) {
