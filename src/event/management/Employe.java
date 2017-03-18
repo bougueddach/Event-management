@@ -109,6 +109,7 @@ public class Employe extends Connexion {
                         if(Rs.first())
                         {
                            St.executeUpdate("insert into participations values ('"+idEv+"','"+idE+"','"+Rs.getDate(1).toString()+"')");
+                           JOptionPane.showMessageDialog(null, "Vous etes inscrit avec succée");
                         }
                         
                     }

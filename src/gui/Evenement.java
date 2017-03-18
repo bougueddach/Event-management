@@ -12,6 +12,7 @@ import java.sql.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import jdbc.Connexion;
@@ -36,7 +37,9 @@ public class Evenement extends javax.swing.JPanel {
         Desc.setEditable(false);
         
     }
-
+    public String getname(){
+        return "1";
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -154,6 +157,13 @@ public class Evenement extends javax.swing.JPanel {
         {
             case "+" :
                 E.Inscrire(IdUser, Integer.parseInt(Plus.getName()));
+//                this.enable(false);
+//                EspaceDirecteur I=new EspaceDirecteur(IdUser);
+//                I.renitianliser();
+//                SwingUtilities.getWindowAncestor(SwingUtilities.getWindowAncestor(SwingUtilities.getWindowAncestor(this))).add(I);
+//                SwingUtilities.getWindowAncestor(SwingUtilities.getWindowAncestor(SwingUtilities.getWindowAncestor(this))).removeAll();
+//                SwingUtilities.getWindowAncestor(SwingUtilities.getWindowAncestor(SwingUtilities.getWindowAncestor(this))).add(I);
+//                SwingUtilities.getWindowAncestor(SwingUtilities.getWindowAncestor(SwingUtilities.getWindowAncestor(this))).setSize(500, 500);
                 
                 break ;
             case "-" :E.Desincrire(IdUser, Integer.parseInt(Plus.getName()));break;

@@ -52,7 +52,10 @@ public class listeEvenement extends javax.swing.JPanel {
                     Evenement Event = new Evenement(Id , Rs1.getString(1));
                     switch(op)
                     {
-                        case "+" : Event.setPlus();break;
+                        case "+" : Event.setPlus();
+                        this.revalidate();
+                        this.repaint();
+                        break;
                         case "-" : Event.setMoins(); break ;
                         case "*" : Event.setModif();break ;
                         default : break ;                        

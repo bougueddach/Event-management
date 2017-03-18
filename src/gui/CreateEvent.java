@@ -12,11 +12,15 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import jdbc.Connexion;
+
 
 /**
  *
@@ -27,6 +31,7 @@ public class CreateEvent extends javax.swing.JPanel {
     Connection Maconnexion;
     String IDEv;
     int IDUser;
+   
     /**
      * Creates new form CreateEvent
      */
@@ -37,6 +42,7 @@ public class CreateEvent extends javax.swing.JPanel {
     }
     public CreateEvent(int id) {
         initComponents();
+        Drop.setVisible(false);
         Maconnexion = con.getMaconnexion();
         DeptPanel.setEnabled(true);
         initComponents();
@@ -67,7 +73,7 @@ public class CreateEvent extends javax.swing.JPanel {
             {
                JOptionPane.showMessageDialog(null ,"Aucun departement a afficher " ,"Warning",JOptionPane.WARNING_MESSAGE);            
             }
-            
+            Date.setCalendar(Calendar.getInstance());
             
         
         } catch (SQLException ex) {
@@ -168,6 +174,7 @@ public class CreateEvent extends javax.swing.JPanel {
         Label = new javax.swing.JLabel();
         Valider = new javax.swing.JButton();
         DeptPanel = new java.awt.Panel();
+        Drop = new javax.swing.JButton();
 
         jTextField4.setText("jTextField4");
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -200,6 +207,11 @@ public class CreateEvent extends javax.swing.JPanel {
         Public.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 PublicMouseClicked(evt);
+            }
+        });
+        Public.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PublicActionPerformed(evt);
             }
         });
 
@@ -241,6 +253,13 @@ public class CreateEvent extends javax.swing.JPanel {
             .addGap(0, 80, Short.MAX_VALUE)
         );
 
+        Drop.setText("Supprimer");
+        Drop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DropActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -251,9 +270,6 @@ public class CreateEvent extends javax.swing.JPanel {
                 .addGap(66, 66, 66))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(Valider))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -268,27 +284,32 @@ public class CreateEvent extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel3))
+                                        .addComponent(Date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(Privee)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                                                 .addComponent(jLabel5))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(Public)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(jLabel6)))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(Secteur, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
                                     .addComponent(Lieu)
                                     .addComponent(Theme)))
-                            .addComponent(DescPanel))))
+                            .addComponent(DescPanel)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addComponent(Valider)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Drop)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -334,9 +355,10 @@ public class CreateEvent extends javax.swing.JPanel {
                 .addComponent(DescLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DescPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Valider)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Valider)
+                    .addComponent(Drop)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -361,39 +383,82 @@ public class CreateEvent extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
-    private void ValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValiderActionPerformed
-        Statement St , St1 , St2 , St3 , St4;
-        ResultSet Rs=null , Rs1=null , Rs2=null , Rs3=null , Rs4=null;
-        
-        try {
-            St=St1=St2=St3=St4=Maconnexion.createStatement();
+    private int ValiderEvenement()
+    {
+        Statement St , St4 , St3 , St5;
+        ResultSet Rs3=null, Rs4=null , Rs5=null;
+        ImageIcon Image1 = new ImageIcon(getClass().getResource("Event.png"));
+        if(IsEmpty()) return 0;
+        try { 
+            St=St3=St4=St5=Maconnexion.createStatement();
             java.sql.Date date = new java.sql.Date(Date.getDate().getTime());
-            switch(Valider.getText())
+            Calendar cal1 = Calendar.getInstance();
+            Calendar cal2 = Calendar.getInstance();
+            cal1.setTime(date);
+            if(!cal1.before(cal2))
+            {
+            Rs5=St.executeQuery("select * from event where IDOrg='"+IDUser+"' and DateEvent='"+date+"'");
+            if(Rs5.first())
+            {
+                
+                JOptionPane.showMessageDialog(null, "Vous ne pouvez pas organiser 2 événement à la même date .", "Confirmation", JOptionPane.DEFAULT_OPTION,Image1);
+            }
+            else{
+            St.executeUpdate("INSERT INTO `event`(`IDEvent`, `Titre`, `Secteur`, `Thème`, `DateEvent`, `Lieu`, `Description`, `Type`, `IDOrg`) VALUES ( null ,'"+Titre.getText()+"' , '"+Secteur.getText()+"' ,'"+Theme.getText()+"', '"+date+"' ,'"+Lieu.getText()+"' , '"+Desc.getText()+"' , '"+((Public.isSelected()== true) ? "Public" : "Privée" )+"' , '"+IDUser+"' );");
+            Component[] DeptV=DeptPanel.getComponents();
+            for(int i=0 ; i<DeptV.length ; i++)
+               {                                
+                 if(((JCheckBox)DeptV[i]).isSelected())
+                    {
+                        Rs4=St4.executeQuery("select max(IDEvent) from event");
+                        String idev;
+                        if(Rs4.first())
+                        {idev = Rs4.getString(1);
+                        Rs3=St3.executeQuery("select IDdept from departement where NomDept='"+((JCheckBox)DeptV[i]).getText()+"'");
+                        if(Rs3.first())                                    
+                        St3.executeUpdate("insert into eventdept values ('"+idev+"' , '"+Rs3.getString(1)+"')");
+                    }  }                          
+                }return 1;}
+            
+        }
+            else
                 {
-                    case "Valider" :
-                        
-                        St.executeUpdate("INSERT INTO `event`(`IDEvent`, `Titre`, `Secteur`, `Thème`, `DateEvent`, `Lieu`, `Description`, `Type`, `IDOrg`) VALUES ( null ,'"+Titre.getText()+"' , '"+Secteur.getText()+"' ,'"+Theme.getText()+"', '"+date+"' ,'"+Lieu.getText()+"' , '"+Desc.getText()+"' , '"+((Public.isSelected()== true) ? "Public" : "Privée" )+"' , '"+IDUser+"' );");
-                        Component[] DeptV=DeptPanel.getComponents();
-                        
-                        for(int i=0 ; i<DeptV.length ; i++)
-                        {                                
-                            if(((JCheckBox)DeptV[i]).isSelected())
-                            {
-                                Rs4=St4.executeQuery("select max(IDEvent) from event");
-                                String idev;
-                                    if(Rs4.first())
-                                    {idev = Rs4.getString(1);
-                                    Rs3=St3.executeQuery("select IDdept from departement where NomDept='"+((JCheckBox)DeptV[i]).getText()+"'");
-                                    if(Rs3.first())                                    
-                                    St3.executeUpdate("insert into eventdept values ('"+idev+"' , '"+Rs3.getString(1)+"')");
-                            }  }                          
-                        }
-                        break;
-                      
-                    case "Modifier" :
-                        
-                        St.executeUpdate("UPDATE event SET  Titre='"+Titre.getText()+"', Secteur='"+Secteur.getText()+"' , Thème = '"+Theme.getText()+"', DateEvent= '"+date+"', Lieu='"+Lieu.getText()+"', Description ='"+Desc.getText()+"', Type= '"+((Public.isSelected()== true) ? "Public" : "Privée" )+"' WHERE IDEvent ='"+IDEv+"'");
-                        Component[] Dept=DeptPanel.getComponents();
+                    JOptionPane.showMessageDialog(null, "Si seulement on pouvait remonter le temps .", "Alerte", JOptionPane.DEFAULT_OPTION,Image1);
+
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(CreateEvent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    
+        
+    }
+    
+    private int ModifierEvenement()
+    {
+        Statement St , St1 , St2 , St3;
+        ResultSet Rs=null , Rs1=null , Rs2=null , Rs5=null ;
+        java.sql.Date date = new java.sql.Date(Date.getDate().getTime());
+        ImageIcon Image1 = new ImageIcon(getClass().getResource("Event.png"));
+        if(!IsEmpty()) 
+        {try {
+                    System.out.println("WTF");
+            Calendar cal1 = Calendar.getInstance();
+            Calendar cal2 = Calendar.getInstance();
+            cal1.setTime(date);
+            St3=Maconnexion.createStatement();
+            if(!cal1.before(cal2))
+            {
+                Rs5=St3.executeQuery("select * from event where IDOrg='"+IDUser+"' and DateEvent='"+date+"'");
+                if(Rs5.first())
+                {                
+                    JOptionPane.showMessageDialog(null, "Vous ne pouvez pas organiser 2 événement à la même date .", "Confirmation", JOptionPane.DEFAULT_OPTION,Image1);
+                }
+            else{
+                    
+            St=St1=St2=Maconnexion.createStatement(); 
+            St.executeUpdate("UPDATE event SET  Titre='"+Titre.getText()+"', Secteur='"+Secteur.getText()+"' , Thème = '"+Theme.getText()+"', DateEvent= '"+date+"', Lieu='"+Lieu.getText()+"', Description ='"+Desc.getText()+"', Type= '"+((Public.isSelected()== true) ? "Public" : "Privée" )+"' WHERE IDEvent ='"+IDEv+"'");
+            Component[] Dept=DeptPanel.getComponents();
                         for(int i=0 ; i<Dept.length ; i++)
                         {                                
                             if(((JCheckBox)Dept[i]).isSelected())
@@ -411,16 +476,119 @@ public class CreateEvent extends javax.swing.JPanel {
                                     Rs2=St2.executeQuery("select IDdept from departement where NomDept='"+((JCheckBox)Dept[i]).getText()+"'");
                                     if(Rs2.first())
                                     St2.executeUpdate("delete from eventdept where IDEvent='"+IDEv+"' and IDDept= '"+Rs2.getString(1)+"'");
-                                 }                            
-                        }                              
+                                 }
+                            
+                        }
+        
+                return 1;}}
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Si seulement on pouvait remonter le temps .", "Alerte", JOptionPane.DEFAULT_OPTION,Image1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CreateEvent.class.getName()).log(Level.SEVERE, null, ex);
+        }}
+        return 0;
+                        
+    }
+    
+    private void Actualiser()
+    {
+        Date.setCalendar(Calendar.getInstance());
+        Titre.setText("");
+        Lieu.setText("");
+        Secteur.setText("");
+        Theme.setText("");
+        Desc.setText("");
+        Privee.setSelected(false);
+        Public.setSelected(false);
+        Component[] Dept=DeptPanel.getComponents();
+                        for(int i=0 ; i<Dept.length ; i++)
+                        ((JCheckBox)Dept[i]).setSelected(false);
+        
+    }
+    private boolean IsEmpty()
+    {
+       boolean x = (Privee.isSelected() && Public.isSelected())||(!Privee.isSelected() && !Public.isSelected()) ;  
+       if(!Titre.getText().isEmpty()&& !Lieu.getText().isEmpty()&& !Secteur.getText().isEmpty() && !Theme.getText().isEmpty() && !Desc.getText().isEmpty() && !x)
+            {if(Privee.isSelected()){
+                 Component[] Dept=DeptPanel.getComponents();
+                 int j=0;
+                        for(int i=0 ; i<Dept.length ; i++)
+                        {if(((JCheckBox)Dept[i]).isSelected())
+                            j++;
+                        }
+                if(j==0){ 
+                JOptionPane.showMessageDialog(null, "Veuillez sélectionner un département .", "",JOptionPane.OK_OPTION); 
+			return true ;}}}                   
+            else
+            { 
+            JOptionPane.showMessageDialog(null, "Veuillez remplir tous les champs .", "",JOptionPane.OK_OPTION);                            
+               return true ; 
+            }  
+            return false;       
+            }
+       
+    
+    
+    private void ValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValiderActionPerformed
+             ImageIcon Image = new ImageIcon(getClass().getResource("eventos.png"));
+            switch(Valider.getText())
+                {
+                    
+                    case "Valider" : 
+                            int i=ValiderEvenement();
+                            if(i==1){
+                            int retour= -1;                            
+                            retour = JOptionPane.showConfirmDialog(null, "Evénement ajoutée avec succès . Voulez-vous ajouter un autre ?", "Confirmation",JOptionPane.YES_NO_OPTION, JOptionPane.YES_NO_OPTION,Image); 
+                            if(retour==0) 
+                            Actualiser();                                
+                            if(retour==1) 
+                            SwingUtilities.getWindowAncestor(this).dispose();  
+                            }
+                       break;                      
+                    case "Modifier" : Drop.setVisible(true);
+                            int j=ModifierEvenement(); 
+                            if(j==1){
+                            JOptionPane.showMessageDialog(null, "Evénement modifié avec succès .", "",JOptionPane.OK_OPTION,Image);                            
+                            SwingUtilities.getWindowAncestor(this).dispose();  
+                            }
                         break;              
                     default : break ;
                 }  
-        }
-        catch (SQLException ex) {
+        
+       
+    }//GEN-LAST:event_ValiderActionPerformed
+
+    private void PublicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PublicActionPerformed
+        // TODO add your handling code here:
+        Component[] Dept=DeptPanel.getComponents();
+                        for(int i=0 ; i<Dept.length ; i++)
+                        ((JCheckBox)Dept[i]).setSelected(false);
+        
+    }//GEN-LAST:event_PublicActionPerformed
+
+    private void DropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DropActionPerformed
+        // TODO add your handling code here:
+        Statement St ;
+        ResultSet Rs=null;
+        try {
+            St=Maconnexion.createStatement();
+            int retour= -1;                            
+            retour = JOptionPane.showConfirmDialog(null, "Êtes-vous sûr de vouloir supprimer définitivement cet évènement ?", "Confirmation",JOptionPane.YES_NO_OPTION, JOptionPane.YES_NO_OPTION); 
+            if(retour==0) 
+            {St.executeUpdate("delete from event WHERE IDEvent ='"+IDEv+"'");
+             JOptionPane.showMessageDialog(null, "Evénement supprimé avec succès .", "",JOptionPane.OK_OPTION);                            
+                SwingUtilities.getWindowAncestor(this).dispose();  }                 
+           
+             
+            
+            
+        } catch (SQLException ex) {
             Logger.getLogger(CreateEvent.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_ValiderActionPerformed
+
+    }//GEN-LAST:event_DropActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -429,6 +597,7 @@ public class CreateEvent extends javax.swing.JPanel {
     private javax.swing.JTextArea Desc;
     private javax.swing.JLabel DescLabel;
     private javax.swing.JScrollPane DescPanel;
+    private javax.swing.JButton Drop;
     private javax.swing.JLabel Label;
     private javax.swing.JTextField Lieu;
     private javax.swing.JRadioButton Privee;

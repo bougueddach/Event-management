@@ -187,7 +187,7 @@ public class Authentify extends javax.swing.JPanel {
         try {
             St=Maconnexion.createStatement();
             if(Idcon.getText().isEmpty() && Mdpcon.getText().isEmpty())
-            {JOptionPane.showMessageDialog(null ," Veuillez remplir les champs !! ","Warning",JOptionPane.WARNING_MESSAGE);}
+            {JOptionPane.showMessageDialog(null ," Veuillez remplir tous les champs !! ","Warning",JOptionPane.WARNING_MESSAGE);}
             else
             {if(!Idcon.getText().isEmpty())
                 {
@@ -200,7 +200,7 @@ public class Authentify extends javax.swing.JPanel {
                             Rs1=St1.executeQuery("select Poste from employe where ID='"+id+"'");
                             if(Rs1.first()){
                                     SwingUtilities.getWindowAncestor(this).dispose();
-                                    JOptionPane.showMessageDialog(null ,"Bienvenidos Director !! " );
+                                    JOptionPane.showMessageDialog(null ," Bienvenidos "+Rs1.getString(1)+" !!");
                                     GUI G2=new GUI();
                                     EspaceDirecteur Ed =new EspaceDirecteur(id);
                                     Ed.setSize(1000, 500);

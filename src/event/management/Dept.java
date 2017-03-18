@@ -50,5 +50,41 @@ public class Dept {
             }
             return -1;
         }
+        public boolean getChef(String dept){
+        Statement St;
+        ResultSet Rs=null;
+        try{
+            St=Maconnexion.createStatement();
+            Rs=St.executeQuery("select * from Employe where IDdept="+getIDdept(dept) +" and Poste='Chef' ");
+            if(Rs.next()){
+                JOptionPane.showMessageDialog(null, "Ce departement à déja un chef");
+            }else{
+                return true;
+            }
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null ,"Probléme dans la selection des departements dans ComboBox!! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);            
+        }
+        return false;
+        }
+        public boolean isEmpty(int Id){
+            Statement St;
+        ResultSet Rs=null;
+        try{
+            St=Maconnexion.createStatement();
+            Rs=St.executeQuery("select * from Employe where IDdept="+Id +" ");
+            if(Rs.next()){
+                JOptionPane.showMessageDialog(null, "");
+                int test = JOptionPane.showConfirmDialog(null ,"Attention Ce departement contient des employe, etes vous sur de vouloir continuer  ","Warning",JOptionPane.YES_NO_OPTION);
+                if(test!=0){
+                    return false;
+                }
+            }else{
+                return true;
+            }
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null ,"Probléme dans la selection des departements dans ComboBox!! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);            
+        }
+        return false;
+        }
 
 }

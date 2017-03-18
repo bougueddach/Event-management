@@ -78,7 +78,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null ,"Probléme dans la selection des departement dans ComboBox!! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);            
         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -519,10 +519,13 @@ public class EspaceAdmin extends javax.swing.JPanel {
 
     private void DeleteEmployeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEmployeActionPerformed
         Admin A=new Admin();
-        A.SupprimerE((int) TableEmploye.getModel().getValueAt(TableEmploye.getSelectedRow(),0));
-        updateJTable5_Employe("Id");
-        ModifierEmploye.setEnabled(false);
-        DeleteEmploye.setEnabled(false);
+        Dept D=new Dept();
+        if(D.isEmpty((int) TableEmploye.getModel().getValueAt(TableEmploye.getSelectedRow(),0))){
+            A.SupprimerE((int) TableEmploye.getModel().getValueAt(TableEmploye.getSelectedRow(),0));
+            updateJTable5_Employe("Id");
+            ModifierEmploye.setEnabled(false);
+            DeleteEmploye.setEnabled(false);
+        }
     }//GEN-LAST:event_DeleteEmployeActionPerformed
 
     private void TableEmployeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableEmployeMouseClicked
@@ -536,11 +539,14 @@ public class EspaceAdmin extends javax.swing.JPanel {
 
     private void AddEmployeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddEmployeActionPerformed
         Admin A= new Admin();
+        Dept D= new Dept();
         if(   !Text_PwdEmploye.getText().isEmpty()
            && !Text_PosteEmploye.getText().isEmpty()
            && !Text_NomEmploye.getText().isEmpty()
            && !Text_PrenomEmploye.getText().isEmpty() ){
-            A.AjouterE(Text_PwdEmploye.getText(), Text_PosteEmploye.getText(), Text_NomEmploye.getText(), Text_PrenomEmploye.getText(),comboBox_departement.getSelectedItem().toString());            
+            if(D.getChef(comboBox_departement.getSelectedItem().toString())){
+                A.AjouterE(Text_PwdEmploye.getText(), Text_PosteEmploye.getText(), Text_NomEmploye.getText(), Text_PrenomEmploye.getText(),comboBox_departement.getSelectedItem().toString());
+            }
         }else{
             JOptionPane.showMessageDialog(null ," Une case est vide débil " ,"Warning",JOptionPane.WARNING_MESSAGE); 
         }

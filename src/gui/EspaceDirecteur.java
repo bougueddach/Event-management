@@ -61,7 +61,8 @@ public class EspaceDirecteur extends javax.swing.JPanel {
         return "";
     }
     public void UpdateEmpoyeInterface(){
-        AffichagePane.setEnabledAt(4, true);
+        AffichagePane.setEnabledAt(4, false);
+        CreatEventButton.setVisible(false);
         UpdateTous();
         UpdatePublic();
         UpdatePrivate();
@@ -77,7 +78,6 @@ public class EspaceDirecteur extends javax.swing.JPanel {
     public void UpdateDirectorInterface(){
         UpdateTousforDirector();
         UpdatePublicDirector();
-        UpdatePrivateDirector();
         UpdateMineDirector();
         UpdateParticipations();
     }
@@ -86,36 +86,43 @@ public class EspaceDirecteur extends javax.swing.JPanel {
         TousPanel.add(E);
     }
     public void UpdatePublicDirector(){
-//        listeEvenement E=new listeEvenement(IdUser,"+","  ");
-//        PublicPanel.add(E);
-    }
-    public void UpdatePrivateDirector(){
-//        listeEvenement E=new listeEvenement(IdUser,"+","");
-//        PrivatePanel.add(E);
+        listeEvenement E=new listeEvenement(IdUser,"+"," select * from event where type = 'public' ");
+        PublicPanel.add(E);
     }
     public void UpdateTous(){
-        listeEvenement E=new listeEvenement(IdUser,"+","");
+        listeEvenement E=new listeEvenement(IdUser,"+","select * from event where IDEvent not in (select IDEvent from participations where IDEmp = "+IdUser+")");
         TousPanel.add(E);
     }
     public void UpdatePublic(){
-//        listeEvenement E=new listeEvenement(IdUser,"+","  ");
-//        PublicPanel.add(E);
+        listeEvenement E=new listeEvenement(IdUser,"+","select * from event where type = 'public' ");
+        PublicPanel.add(E);
     }
     public void UpdatePrivate(){
-//        listeEvenement E=new listeEvenement(IdUser,"+","");
-//        PrivatePanel.add(E);
+        listeEvenement E=new listeEvenement(IdUser,"+","select * from event where IDEvent in (select IDEvent from eventdept where IDDept in (select IDDept from employe where ID = "+IdUser+")) ");
+        PrivatePanel.add(E);
     }
     public void UpdateParticipations(){
-//        listeEvenement E=new listeEvenement(IdUser,"-","");
-//        ParticipationsPanel.add(E);
+        listeEvenement E=new listeEvenement(IdUser,"-","select * from event where IDEvent in (select IDEvent from participations where IDEmp = '"+IdUser+"')");
+        ParticipationsPanel.add(E);
     }
     public void UpdateMineDirector(){
-        listeEvenement E=new listeEvenement(IdUser,"*","select * from event  where IDOrg = '"+IdUser+"' ");
+        listeEvenement E=new listeEvenement(IdUser,"*","select *  from event  where IDOrg = '"+IdUser+"'");
         MinePanel.add(E);
     }
     public void UpdateMine(){
-//        listeEvenement E=new listeEvenement(IdUser,"Modifier","select e.IDEvent,Titre,Thème,Secteur,DateEvent,Lieu,Description,Type from event e,participations p where (e.IDEvent = p.IDEvent and IDOrg = "+IdUser+"); ");
-//        MinePanel.add(E);
+        listeEvenement E=new listeEvenement(IdUser,"Modifier","select * from event e,participations p where (e.IDEvent = p.IDEvent and IDOrg = "+IdUser+"); ");
+        MinePanel.add(E);
+    }
+    public void renitianliser(){
+        EspaceDirecteur I=new EspaceDirecteur(IdUser);
+        I.setSize(1000, 500);
+        I.setVisible(true);
+        SwingUtilities.getWindowAncestor(this).add(I);
+        SwingUtilities.getWindowAncestor(this).setSize(1000, 500);
+        SwingUtilities.getWindowAncestor(this).setVisible(true);
+    }
+    public String getname(){
+        return "2";
     }
 
     /**
