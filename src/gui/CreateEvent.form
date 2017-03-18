@@ -78,7 +78,7 @@
                                   <Component id="Theme" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="DescPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="DescPanel" alignment="0" pref="386" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">

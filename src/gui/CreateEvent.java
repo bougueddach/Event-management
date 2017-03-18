@@ -39,6 +39,7 @@ public class CreateEvent extends javax.swing.JPanel {
     {
         this(id);
         IDEv = ide;
+        Drop.setVisible(false);
     }
     public CreateEvent(int id) {
         initComponents();
@@ -74,7 +75,7 @@ public class CreateEvent extends javax.swing.JPanel {
                JOptionPane.showMessageDialog(null ,"Aucun departement a afficher " ,"Warning",JOptionPane.WARNING_MESSAGE);            
             }
             Date.setCalendar(Calendar.getInstance());
-            
+            Drop.setVisible(false);
         
         } catch (SQLException ex) {
           JOptionPane.showMessageDialog(null ,"Erreur ComboBox Dept " ,"Warning",JOptionPane.WARNING_MESSAGE);            
