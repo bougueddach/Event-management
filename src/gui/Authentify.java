@@ -61,6 +61,7 @@ public class Authentify extends javax.swing.JPanel {
         Authentify.setLayout(null);
 
         AdminButton.setFont(new java.awt.Font("Georgia", 1, 11)); // NOI18N
+        AdminButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management1\\Event-management\\images\\admin.png")); // NOI18N
         AdminButton.setText("Administrateur");
         AdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +72,7 @@ public class Authentify extends javax.swing.JPanel {
         AdminButton.setBounds(90, 30, 180, 90);
 
         jButton1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management1\\Event-management\\images\\users.png")); // NOI18N
         jButton1.setText("    Utilisateurs");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +82,7 @@ public class Authentify extends javax.swing.JPanel {
         Authentify.add(jButton1);
         jButton1.setBounds(340, 30, 180, 90);
 
+        ConAdmin.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management1\\Event-management\\images\\scnt.png")); // NOI18N
         ConAdmin.setToolTipText("");
         ConAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,14 +100,19 @@ public class Authentify extends javax.swing.JPanel {
         Authentify.add(Admincon);
         Admincon.setBounds(100, 160, 170, 30);
 
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Identifiant");
         Authentify.add(jLabel1);
-        jLabel1.setBounds(320, 140, 76, 20);
+        jLabel1.setBounds(300, 140, 76, 20);
 
+        jLabel2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Mot de passe");
         Authentify.add(jLabel2);
-        jLabel2.setBounds(320, 180, 76, 20);
+        jLabel2.setBounds(300, 180, 90, 20);
 
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management1\\Event-management\\images\\scnt.png")); // NOI18N
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -118,14 +126,18 @@ public class Authentify extends javax.swing.JPanel {
         Authentify.add(jButton2);
         jButton2.setBounds(350, 220, 150, 30);
         Authentify.add(Idcon);
-        Idcon.setBounds(400, 140, 119, 26);
+        Idcon.setBounds(400, 140, 119, 20);
         Authentify.add(Mdpcon);
-        Mdpcon.setBounds(400, 180, 120, 26);
+        Mdpcon.setBounds(400, 180, 120, 20);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management1\\Event-management\\images\\degrade.png")); // NOI18N
         Authentify.add(jLabel5);
         jLabel5.setBounds(10, -10, 620, 310);
 
         add(Authentify);
         Authentify.setBounds(-10, 200, 620, 770);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management1\\Event-management\\images\\logoevent.png")); // NOI18N
         add(jLabel3);
         jLabel3.setBounds(0, 0, 882, 202);
     }// </editor-fold>//GEN-END:initComponents
