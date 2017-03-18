@@ -141,12 +141,11 @@ public class EspaceDirecteur extends javax.swing.JPanel {
         PrivatePanel = new javax.swing.JPanel();
         ParticipationsPanel = new javax.swing.JPanel();
         MinePanel = new javax.swing.JPanel();
-        jTextField10 = new javax.swing.JTextField();
         DiscoChef1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
         CreatEventButton = new javax.swing.JButton();
+        Actualiser = new javax.swing.JButton();
 
         javax.swing.GroupLayout TousPanelLayout = new javax.swing.GroupLayout(TousPanel);
         TousPanel.setLayout(TousPanelLayout);
@@ -213,8 +212,6 @@ public class EspaceDirecteur extends javax.swing.JPanel {
 
         AffichagePane.addTab("Mes événements", MinePanel);
 
-        jTextField10.setText("Rechercher");
-
         DiscoChef1.setText("Déconnexion");
         DiscoChef1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,8 +224,6 @@ public class EspaceDirecteur extends javax.swing.JPanel {
 
         jLabel10.setText("Trier les événements par:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Titre", "Secteur", "Thème", "Date", "Lieu", "Organisateur" }));
-
         CreatEventButton.setText("Créer un événement");
         CreatEventButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,32 +231,31 @@ public class EspaceDirecteur extends javax.swing.JPanel {
             }
         });
 
+        Actualiser.setText("Actualiser");
+
         javax.swing.GroupLayout EspaceChef1Layout = new javax.swing.GroupLayout(EspaceChef1);
         EspaceChef1.setLayout(EspaceChef1Layout);
         EspaceChef1Layout.setHorizontalGroup(
             EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EspaceChef1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChef1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(Actualiser)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(162, 162, 162)
+                .addComponent(DiscoChef1)
+                .addGap(31, 31, 31))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChef1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(EspaceChef1Layout.createSequentialGroup()
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(162, 162, 162)
-                        .addComponent(DiscoChef1)
-                        .addGap(31, 31, 31))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChef1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(AffichagePane, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(66, 66, 66)
                         .addComponent(CreatEventButton)
-                        .addGap(79, 79, 79))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChef1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addGap(79, 79, 79))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChef1Layout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(145, 145, 145))))
         );
         EspaceChef1Layout.setVerticalGroup(
             EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,15 +263,16 @@ public class EspaceDirecteur extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(EspaceChef1Layout.createSequentialGroup()
-                        .addGroup(EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DiscoChef1))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(13, 13, 13)
-                .addGroup(EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(EspaceChef1Layout.createSequentialGroup()
+                                .addComponent(DiscoChef1)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(17, 17, 17))
+                    .addGroup(EspaceChef1Layout.createSequentialGroup()
+                        .addComponent(Actualiser)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jLabel10)
                 .addGroup(EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(EspaceChef1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -332,6 +327,7 @@ public class EspaceDirecteur extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Actualiser;
     private javax.swing.JTabbedPane AffichagePane;
     private javax.swing.JButton CreatEventButton;
     private javax.swing.JButton DiscoChef1;
@@ -341,9 +337,7 @@ public class EspaceDirecteur extends javax.swing.JPanel {
     private javax.swing.JPanel PrivatePanel;
     private javax.swing.JPanel PublicPanel;
     private javax.swing.JPanel TousPanel;
-    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField10;
     // End of variables declaration//GEN-END:variables
 }

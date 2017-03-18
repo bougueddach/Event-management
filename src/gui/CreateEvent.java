@@ -39,11 +39,9 @@ public class CreateEvent extends javax.swing.JPanel {
     {
         this(id);
         IDEv = ide;
-        Drop.setVisible(false);
     }
     public CreateEvent(int id) {
         initComponents();
-        Drop.setVisible(false);
         Maconnexion = con.getMaconnexion();
         DeptPanel.setEnabled(true);
         initComponents();
@@ -88,6 +86,9 @@ public class CreateEvent extends javax.swing.JPanel {
     public void setButton(String S)
     {
         Valider.setText(S);
+    }
+    public void setDrop(){
+        Drop.setVisible(true);
     }
     public void setTitre(String S)
     {

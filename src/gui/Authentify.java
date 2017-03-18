@@ -27,6 +27,11 @@ public class Authentify extends javax.swing.JPanel {
         Maconnexion = con.getMaconnexion();
         Admincon.setVisible(false);
         ConAdmin.setVisible(false);
+        Mdpcon.setVisible(false);
+        Idcon.setVisible(false);
+        jButton2.setVisible(false);
+        jLabel1.setVisible(false);
+        jLabel2.setVisible(false);
     }
 
     /**
@@ -40,29 +45,66 @@ public class Authentify extends javax.swing.JPanel {
 
         Authentify = new javax.swing.JPanel();
         AdminButton = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        Idcon = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        Mdpcon = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
         ConAdmin = new javax.swing.JButton();
         Admincon = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        Idcon = new javax.swing.JTextField();
+        Mdpcon = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
+        setLayout(null);
+
+        Authentify.setLayout(null);
+
+        AdminButton.setFont(new java.awt.Font("Georgia", 1, 11)); // NOI18N
         AdminButton.setText("Administrateur");
         AdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AdminButtonActionPerformed(evt);
             }
         });
+        Authentify.add(AdminButton);
+        AdminButton.setBounds(90, 30, 180, 90);
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jButton1.setText("    Utilisateurs");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        Authentify.add(jButton1);
+        jButton1.setBounds(340, 30, 180, 90);
+
+        ConAdmin.setToolTipText("");
+        ConAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConAdminActionPerformed(evt);
+            }
+        });
+        Authentify.add(ConAdmin);
+        ConAdmin.setBounds(110, 220, 150, 30);
+
+        Admincon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminconActionPerformed(evt);
+            }
+        });
+        Authentify.add(Admincon);
+        Admincon.setBounds(100, 160, 170, 30);
 
         jLabel1.setText("Identifiant");
+        Authentify.add(jLabel1);
+        jLabel1.setBounds(320, 140, 76, 20);
 
         jLabel2.setText("Mot de passe");
+        Authentify.add(jLabel2);
+        jLabel2.setBounds(320, 180, 76, 20);
 
-        jButton2.setText("Connexion");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -73,101 +115,19 @@ public class Authentify extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
+        Authentify.add(jButton2);
+        jButton2.setBounds(350, 220, 150, 30);
+        Authentify.add(Idcon);
+        Idcon.setBounds(400, 140, 119, 26);
+        Authentify.add(Mdpcon);
+        Mdpcon.setBounds(400, 180, 120, 26);
+        Authentify.add(jLabel5);
+        jLabel5.setBounds(10, -10, 620, 310);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(jButton2))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Idcon)
-                            .addComponent(Mdpcon, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Idcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Mdpcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
-
-        ConAdmin.setText("Connexion");
-        ConAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConAdminActionPerformed(evt);
-            }
-        });
-
-        Admincon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdminconActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout AuthentifyLayout = new javax.swing.GroupLayout(Authentify);
-        Authentify.setLayout(AuthentifyLayout);
-        AuthentifyLayout.setHorizontalGroup(
-            AuthentifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AuthentifyLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(AuthentifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(AuthentifyLayout.createSequentialGroup()
-                        .addComponent(AdminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Admincon, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ConAdmin))
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(53, Short.MAX_VALUE))
-        );
-        AuthentifyLayout.setVerticalGroup(
-            AuthentifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AuthentifyLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(AuthentifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AdminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ConAdmin)
-                    .addComponent(Admincon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Authentify, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Authentify, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
+        add(Authentify);
+        Authentify.setBounds(-10, 200, 620, 770);
+        add(jLabel3);
+        jLabel3.setBounds(0, 0, 882, 202);
     }// </editor-fold>//GEN-END:initComponents
 
     private void AdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonActionPerformed
@@ -248,6 +208,14 @@ public class Authentify extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_AdminconActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Mdpcon.setVisible(true);
+        Idcon.setVisible(true);
+        jButton2.setVisible(true);
+        jLabel1.setVisible(true);
+        jLabel2.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AdminButton;
@@ -256,9 +224,11 @@ public class Authentify extends javax.swing.JPanel {
     private javax.swing.JButton ConAdmin;
     private javax.swing.JTextField Idcon;
     private javax.swing.JPasswordField Mdpcon;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel6;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }

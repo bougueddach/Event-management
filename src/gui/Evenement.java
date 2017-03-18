@@ -157,8 +157,9 @@ public class Evenement extends javax.swing.JPanel {
         {
             case "+" :
                 E.Inscrire(IdUser, Integer.parseInt(Plus.getName()));
-//                this.enable(false);
 //                EspaceDirecteur I=new EspaceDirecteur(IdUser);
+//                SwingUtilities.getWindowAncestor(this).add(I);
+//                this.add(I);
 //                I.renitianliser();
 //                SwingUtilities.getWindowAncestor(SwingUtilities.getWindowAncestor(SwingUtilities.getWindowAncestor(this))).add(I);
 //                SwingUtilities.getWindowAncestor(SwingUtilities.getWindowAncestor(SwingUtilities.getWindowAncestor(this))).removeAll();
@@ -187,6 +188,7 @@ public class Evenement extends javax.swing.JPanel {
                 Ev.setTheme(Rs.getString(4));
                 Ev.setDescription(Rs.getString(7));
                 Ev.setDate(Rs.getDate(5));
+                Ev.setDrop();
                 Ev.setDeptPanel(Integer.parseInt(Plus.getName()));
                 G.add(Ev);
                 G.setVisible(true);                
