@@ -56,7 +56,7 @@ public class EspaceDirecteur extends javax.swing.JPanel {
             }
         }
         catch(SQLException ex) {
-            JOptionPane.showMessageDialog(null ,"Pb de generation votre interface !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null ,"Pb de génération de votre interface !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
         }
         return "";
     }
@@ -83,46 +83,48 @@ public class EspaceDirecteur extends javax.swing.JPanel {
     }
     public void UpdateTousforDirector(){
         listeEvenement E=new listeEvenement(IdUser,"+","select * from event where IDEvent not in (select IDEvent from participations where IDEmp='"+IdUser+"')");
+        E.setSize(576, 360);
         TousPanel.add(E);
     }
     public void UpdatePublicDirector(){
         listeEvenement E=new listeEvenement(IdUser,"+"," select * from event where type = 'public' ");
+        E.setSize(576, 360);
         PublicPanel.add(E);
     }
     public void UpdateTous(){
         listeEvenement E=new listeEvenement(IdUser,"+","select * from event where IDEvent not in (select IDEvent from participations where IDEmp = "+IdUser+")");
+        E.setSize(576, 360);
         TousPanel.add(E);
     }
     public void UpdatePublic(){
         listeEvenement E=new listeEvenement(IdUser,"+","select * from event where type = 'public' ");
-        PublicPanel.add(E);
+        E.setSize(576, 360); PublicPanel.add(E);
     }
     public void UpdatePrivate(){
         listeEvenement E=new listeEvenement(IdUser,"+","select * from event where IDEvent in (select IDEvent from eventdept where IDDept in (select IDDept from employe where ID = "+IdUser+")) ");
-        PrivatePanel.add(E);
+        E.setSize(576, 360); PrivatePanel.add(E);
     }
     public void UpdateParticipations(){
         listeEvenement E=new listeEvenement(IdUser,"-","select * from event where IDEvent in (select IDEvent from participations where IDEmp = '"+IdUser+"')");
+        E.setSize(576, 360); 
         ParticipationsPanel.add(E);
     }
     public void UpdateMineDirector(){
         listeEvenement E=new listeEvenement(IdUser,"*","select *  from event  where IDOrg = '"+IdUser+"'");
-        MinePanel.add(E);
+       E.setSize(576, 360);
+       MinePanel.add(E);
     }
     public void UpdateMine(){
         listeEvenement E=new listeEvenement(IdUser,"Modifier","select * from event e,participations p where (e.IDEvent = p.IDEvent and IDOrg = "+IdUser+"); ");
-        MinePanel.add(E);
+       E.setSize(576, 360);
+       MinePanel.add(E);
     }
-    public void renitianliser(){
+    public void Actualiser(){
         EspaceDirecteur I=new EspaceDirecteur(IdUser);
-        I.setSize(1000, 500);
+        I.setSize(910, 700);
         I.setVisible(true);
+        this.setVisible(false);
         SwingUtilities.getWindowAncestor(this).add(I);
-        SwingUtilities.getWindowAncestor(this).setSize(1000, 500);
-        SwingUtilities.getWindowAncestor(this).setVisible(true);
-    }
-    public String getname(){
-        return "2";
     }
 
     /**
@@ -142,20 +144,23 @@ public class EspaceDirecteur extends javax.swing.JPanel {
         ParticipationsPanel = new javax.swing.JPanel();
         MinePanel = new javax.swing.JPanel();
         DiscoChef1 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         CreatEventButton = new javax.swing.JButton();
         Actualiser = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        EspaceChef1.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout TousPanelLayout = new javax.swing.GroupLayout(TousPanel);
         TousPanel.setLayout(TousPanelLayout);
         TousPanelLayout.setHorizontalGroup(
             TousPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 562, Short.MAX_VALUE)
+            .addGap(0, 574, Short.MAX_VALUE)
         );
         TousPanelLayout.setVerticalGroup(
             TousPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 257, Short.MAX_VALUE)
+            .addGap(0, 360, Short.MAX_VALUE)
         );
 
         AffichagePane.addTab("Tous", TousPanel);
@@ -164,11 +169,11 @@ public class EspaceDirecteur extends javax.swing.JPanel {
         PublicPanel.setLayout(PublicPanelLayout);
         PublicPanelLayout.setHorizontalGroup(
             PublicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 562, Short.MAX_VALUE)
+            .addGap(0, 574, Short.MAX_VALUE)
         );
         PublicPanelLayout.setVerticalGroup(
             PublicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 257, Short.MAX_VALUE)
+            .addGap(0, 360, Short.MAX_VALUE)
         );
 
         AffichagePane.addTab("Publics", PublicPanel);
@@ -177,11 +182,11 @@ public class EspaceDirecteur extends javax.swing.JPanel {
         PrivatePanel.setLayout(PrivatePanelLayout);
         PrivatePanelLayout.setHorizontalGroup(
             PrivatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 562, Short.MAX_VALUE)
+            .addGap(0, 574, Short.MAX_VALUE)
         );
         PrivatePanelLayout.setVerticalGroup(
             PrivatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 257, Short.MAX_VALUE)
+            .addGap(0, 360, Short.MAX_VALUE)
         );
 
         AffichagePane.addTab("Privés", PrivatePanel);
@@ -190,11 +195,11 @@ public class EspaceDirecteur extends javax.swing.JPanel {
         ParticipationsPanel.setLayout(ParticipationsPanelLayout);
         ParticipationsPanelLayout.setHorizontalGroup(
             ParticipationsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 562, Short.MAX_VALUE)
+            .addGap(0, 574, Short.MAX_VALUE)
         );
         ParticipationsPanelLayout.setVerticalGroup(
             ParticipationsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 257, Short.MAX_VALUE)
+            .addGap(0, 360, Short.MAX_VALUE)
         );
 
         AffichagePane.addTab("Mes participations", ParticipationsPanel);
@@ -203,15 +208,16 @@ public class EspaceDirecteur extends javax.swing.JPanel {
         MinePanel.setLayout(MinePanelLayout);
         MinePanelLayout.setHorizontalGroup(
             MinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 562, Short.MAX_VALUE)
+            .addGap(0, 574, Short.MAX_VALUE)
         );
         MinePanelLayout.setVerticalGroup(
             MinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 257, Short.MAX_VALUE)
+            .addGap(0, 360, Short.MAX_VALUE)
         );
 
         AffichagePane.addTab("Mes événements", MinePanel);
 
+        DiscoChef1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         DiscoChef1.setText("Déconnexion");
         DiscoChef1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,11 +225,8 @@ public class EspaceDirecteur extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel4.setText("Evénements");
-
-        jLabel10.setText("Trier les événements par:");
-
+        CreatEventButton.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        CreatEventButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management\\images\\icon_add_event.png")); // NOI18N
         CreatEventButton.setText("Créer un événement");
         CreatEventButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,77 +234,64 @@ public class EspaceDirecteur extends javax.swing.JPanel {
             }
         });
 
-        Actualiser.setText("Actualiser");
+        Actualiser.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        Actualiser.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management\\images\\actualiser.png")); // NOI18N
+        Actualiser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActualiserActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout EspaceChef1Layout = new javax.swing.GroupLayout(EspaceChef1);
         EspaceChef1.setLayout(EspaceChef1Layout);
         EspaceChef1Layout.setHorizontalGroup(
-            EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChef1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(Actualiser)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(162, 162, 162)
-                .addComponent(DiscoChef1)
-                .addGap(31, 31, 31))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChef1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChef1Layout.createSequentialGroup()
-                        .addComponent(AffichagePane, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)
-                        .addComponent(CreatEventButton)
-                        .addGap(79, 79, 79))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChef1Layout.createSequentialGroup()
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(145, 145, 145))))
+            EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(EspaceChef1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(AffichagePane, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(EspaceChef1Layout.createSequentialGroup()
+                        .addComponent(Actualiser, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(DiscoChef1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CreatEventButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         EspaceChef1Layout.setVerticalGroup(
             EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceChef1Layout.createSequentialGroup()
+            .addGroup(EspaceChef1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(AffichagePane, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(EspaceChef1Layout.createSequentialGroup()
                         .addGroup(EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(EspaceChef1Layout.createSequentialGroup()
-                                .addComponent(DiscoChef1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(17, 17, 17))
-                    .addGroup(EspaceChef1Layout.createSequentialGroup()
-                        .addComponent(Actualiser)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jLabel10)
-                .addGroup(EspaceChef1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(EspaceChef1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AffichagePane, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(EspaceChef1Layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(CreatEventButton)))
-                .addContainerGap())
+                            .addComponent(DiscoChef1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Actualiser, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(137, 137, 137)
+                        .addComponent(CreatEventButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(251, Short.MAX_VALUE))
         );
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management\\images\\kolna.jpg")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 931, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(EspaceChef1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 979, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(EspaceChef1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 407, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(EspaceChef1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(EspaceChef1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -312,18 +302,22 @@ public class EspaceDirecteur extends javax.swing.JPanel {
         Authentify A=new Authentify();
         A.setSize(1300, 500);
         G.add(A);
-        G.setSize(500, 500);
+        G.setSize(600, 559);
         G.setVisible(true);
     }//GEN-LAST:event_DiscoChef1ActionPerformed
 
     private void CreatEventButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreatEventButtonActionPerformed
         GUI G=new GUI();
         CreateEvent C=new CreateEvent(IdUser);
-        C.setSize(1300, 500);
+        C.setSize(478, 650);
         G.add(C);
-        G.setSize(500, 500);
+        G.setSize(478, 650); G.setLocationRelativeTo(null);
         G.setVisible(true);
     }//GEN-LAST:event_CreatEventButtonActionPerformed
+
+    private void ActualiserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualiserActionPerformed
+       Actualiser();
+    }//GEN-LAST:event_ActualiserActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -337,7 +331,6 @@ public class EspaceDirecteur extends javax.swing.JPanel {
     private javax.swing.JPanel PrivatePanel;
     private javax.swing.JPanel PublicPanel;
     private javax.swing.JPanel TousPanel;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

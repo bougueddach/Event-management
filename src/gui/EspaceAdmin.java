@@ -50,7 +50,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
             Rs=St.executeQuery("select ID, Nom, Prenom, Poste, NomDept departement from employe, departement where (employe.IDdept=departement.IDdept ) order by "+critere+" ");
             TableEmploye.setModel(DbUtils.resultSetToTableModel(Rs));
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null ,"Probléme dans la selection des Employées !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null ,"Problème dans la sélection des Employés !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
         }
     }
     public void updateJTable6_Departement(){
@@ -61,7 +61,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
             Rs=St.executeQuery("select * from departement;");
             jTable6.setModel(DbUtils.resultSetToTableModel(Rs));
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null ,"Probléme dans la selection des departements !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null ,"Problème dans la sélection des départements !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
         }
     }
     
@@ -75,7 +75,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
                 comboBox_departement.addItem(Rs.getString("NomDept"));
             }
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null ,"Probléme dans la selection des departement dans ComboBox!! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);            
+            JOptionPane.showMessageDialog(null ,"Problème dans la sélection des départements dans ComboBox!! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);            
         }
     }
     
@@ -90,6 +90,13 @@ public class EspaceAdmin extends javax.swing.JPanel {
 
         EspaceAdmin2 = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
+        jPanel12 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable6 = new javax.swing.JTable();
+        ButtonAjoutDept = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
+        jTextDept = new javax.swing.JTextField();
         jPanel10 = new javax.swing.JPanel();
         SearchText = new javax.swing.JTextField();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -109,232 +116,21 @@ public class EspaceAdmin extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         Text_NomEmploye = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        comboBox_departement = new javax.swing.JComboBox<>();
+        comboBox_departement = new javax.swing.JComboBox<String>();
         jButton1 = new javax.swing.JButton();
-        jPanel12 = new javax.swing.JPanel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
-        ButtonAjoutDept = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
-        jTextField8 = new javax.swing.JTextField();
-        jButton21 = new javax.swing.JButton();
-        jTextDept = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         Disconnect2 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
-        SearchText.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                SearchTextKeyTyped(evt);
-            }
-        });
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(800, 900));
+        setLayout(null);
 
-        TableEmploye.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Nom", "Prénom", "Poste", "Département"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
+        EspaceAdmin2.setBackground(new java.awt.Color(255, 255, 255));
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        TableEmploye.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TableEmployeMouseClicked(evt);
-            }
-        });
-        jScrollPane5.setViewportView(TableEmploye);
+        jTabbedPane3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton16.setText("Ajouter employé");
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
-            }
-        });
-
-        TriEmp2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nom", "Prenom", "Departement", "Poste" }));
-        TriEmp2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TriEmp2ActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setText("Trier les employés par: ");
-
-        DeleteEmploye.setText("Supprimer");
-        DeleteEmploye.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeleteEmployeActionPerformed(evt);
-            }
-        });
-
-        ModifierEmploye.setText("Modifier");
-        ModifierEmploye.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ModifierEmployeActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("Nom");
-
-        AddEmploye.setText("ADD");
-        AddEmploye.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddEmployeActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Prénom");
-
-        Text_PwdEmploye.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Text_PwdEmployeActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Poste");
-
-        jLabel2.setText("password");
-
-        comboBox_departement.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Departement" }));
-        comboBox_departement.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                comboBox_departementMouseClicked(evt);
-            }
-        });
-        comboBox_departement.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboBox_departementActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Text_PosteEmploye)
-                            .addComponent(Text_PrenomEmploye)
-                            .addComponent(Text_PwdEmploye)
-                            .addComponent(Text_NomEmploye)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(44, 44, 44)
-                                .addComponent(AddEmploye))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(comboBox_departement, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 12, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Text_NomEmploye, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Text_PrenomEmploye, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Text_PosteEmploye, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Text_PwdEmploye, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(7, 7, 7)
-                .addComponent(comboBox_departement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AddEmploye)
-                .addContainerGap())
-        );
-
-        jButton1.setText("Trier");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TriEmp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(SearchText, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton16)
-                .addGap(125, 125, 125))
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(ModifierEmploye)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DeleteEmploye)
-                        .addGap(132, 132, 132)))
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TriEmp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(SearchText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton16)
-                    .addComponent(jButton1))
-                .addGap(17, 17, 17)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(DeleteEmploye)
-                            .addComponent(ModifierEmploye)))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(210, Short.MAX_VALUE))
-        );
-
-        jTabbedPane3.addTab("Section Employés", jPanel10);
-
-        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
 
         jTable6.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -362,34 +158,32 @@ public class EspaceAdmin extends javax.swing.JPanel {
         });
         jScrollPane6.setViewportView(jTable6);
 
-        jPanel12.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 5, -1, 250));
-
+        ButtonAjoutDept.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        ButtonAjoutDept.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management\\images\\ajouter dept.png")); // NOI18N
         ButtonAjoutDept.setText("Ajouter département");
         ButtonAjoutDept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonAjoutDeptActionPerformed(evt);
             }
         });
-        jPanel12.add(ButtonAjoutDept, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, -1, -1));
 
+        jButton20.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jButton20.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management\\images\\seo-social-web-network-internet_262_icon-icons.com_61518.png")); // NOI18N
         jButton20.setText("Supprimer");
         jButton20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton20ActionPerformed(evt);
             }
         });
-        jPanel12.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, -1, -1));
 
-        jTextField8.setText("Rechercher");
-        jPanel12.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 150, -1, -1));
-
+        jButton21.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jButton21.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management\\images\\modif.png")); // NOI18N
         jButton21.setText("Modifier");
         jButton21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton21ActionPerformed(evt);
             }
         });
-        jPanel12.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, -1, -1));
 
         jTextDept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -401,10 +195,260 @@ public class EspaceAdmin extends javax.swing.JPanel {
                 jTextDeptKeyPressed(evt);
             }
         });
-        jPanel12.add(jTextDept, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, 120, -1));
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)
+                        .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ButtonAjoutDept, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextDept))))
+                .addGap(152, 152, 152))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(ButtonAjoutDept)
+                        .addGap(26, 26, 26)
+                        .addComponent(jTextDept, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
         jTabbedPane3.addTab("Section départements", jPanel12);
 
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel10.setLayout(null);
+
+        SearchText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchTextActionPerformed(evt);
+            }
+        });
+        SearchText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                SearchTextKeyTyped(evt);
+            }
+        });
+        jPanel10.add(SearchText);
+        SearchText.setBounds(400, 10, 110, 30);
+
+        TableEmploye.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nom", "Prénom", "Poste", "Département"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        TableEmploye.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableEmployeMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(TableEmploye);
+
+        jPanel10.add(jScrollPane5);
+        jScrollPane5.setBounds(12, 51, 550, 190);
+
+        jButton16.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jButton16.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management\\images\\ajouter emp.png")); // NOI18N
+        jButton16.setText("Ajouter employé");
+        jButton16.setPreferredSize(new java.awt.Dimension(71, 30));
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jButton16);
+        jButton16.setBounds(590, 10, 230, 60);
+
+        TriEmp2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        TriEmp2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nom", "Prenom", "Departement", "Poste" }));
+        TriEmp2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TriEmp2ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(TriEmp2);
+        TriEmp2.setBounds(190, 10, 113, 30);
+
+        jLabel8.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel8.setText("Trier les employés par: ");
+        jPanel10.add(jLabel8);
+        jLabel8.setBounds(10, 20, 173, 17);
+
+        DeleteEmploye.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        DeleteEmploye.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management\\images\\seo-social-web-network-internet_262_icon-icons.com_61518.png")); // NOI18N
+        DeleteEmploye.setText("Supprimer");
+        DeleteEmploye.setPreferredSize(new java.awt.Dimension(71, 30));
+        DeleteEmploye.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteEmployeActionPerformed(evt);
+            }
+        });
+        jPanel10.add(DeleteEmploye);
+        DeleteEmploye.setBounds(280, 260, 140, 40);
+
+        ModifierEmploye.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        ModifierEmploye.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management\\images\\modif.png")); // NOI18N
+        ModifierEmploye.setText("Modifier");
+        ModifierEmploye.setPreferredSize(new java.awt.Dimension(71, 30));
+        ModifierEmploye.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModifierEmployeActionPerformed(evt);
+            }
+        });
+        jPanel10.add(ModifierEmploye);
+        ModifierEmploye.setBounds(70, 260, 140, 40);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel3.setText("Nom");
+
+        AddEmploye.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        AddEmploye.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management\\images\\check-mark-3-512 png.png")); // NOI18N
+        AddEmploye.setText("Valider");
+        AddEmploye.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddEmployeActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel4.setText("Prénom");
+
+        Text_PwdEmploye.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Text_PwdEmployeActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel1.setText("Poste");
+
+        Text_NomEmploye.setPreferredSize(new java.awt.Dimension(6, 30));
+
+        jLabel2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel2.setText("Password");
+
+        comboBox_departement.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        comboBox_departement.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Departement" }));
+        comboBox_departement.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                comboBox_departementMouseClicked(evt);
+            }
+        });
+        comboBox_departement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBox_departementActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Text_PosteEmploye)
+                            .addComponent(Text_PrenomEmploye)
+                            .addComponent(Text_PwdEmploye)
+                            .addComponent(Text_NomEmploye, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(AddEmploye)
+                            .addComponent(comboBox_departement, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 20, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Text_NomEmploye, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Text_PrenomEmploye, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Text_PosteEmploye, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Text_PwdEmploye, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 24, Short.MAX_VALUE)
+                .addComponent(comboBox_departement, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AddEmploye, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
+        );
+
+        jPanel10.add(jPanel3);
+        jPanel3.setBounds(590, 70, 230, 280);
+
+        jButton1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jButton1.setText("Trier");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jButton1);
+        jButton1.setBounds(320, 10, 70, 30);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management\\images\\icone_search (1).png")); // NOI18N
+        jLabel6.setPreferredSize(new java.awt.Dimension(20, 20));
+        jPanel10.add(jLabel6);
+        jLabel6.setBounds(520, 10, 30, 30);
+
+        jTabbedPane3.addTab("Section Employés", jPanel10);
+
+        Disconnect2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         Disconnect2.setText("Déconnexion");
         Disconnect2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -416,49 +460,42 @@ public class EspaceAdmin extends javax.swing.JPanel {
         EspaceAdmin2.setLayout(EspaceAdmin2Layout);
         EspaceAdmin2Layout.setHorizontalGroup(
             EspaceAdmin2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EspaceAdmin2Layout.createSequentialGroup()
-                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 863, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+            .addComponent(jTabbedPane3)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceAdmin2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Disconnect2)
-                .addGap(179, 179, 179))
+                .addComponent(Disconnect2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79))
         );
         EspaceAdmin2Layout.setVerticalGroup(
             EspaceAdmin2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EspaceAdmin2Layout.createSequentialGroup()
-                .addComponent(Disconnect2)
-                .addGap(12, 12, 12)
-                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(EspaceAdmin2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Disconnect2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(EspaceAdmin2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(EspaceAdmin2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
+        add(EspaceAdmin2);
+        EspaceAdmin2.setBounds(0, 230, 860, 584);
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management\\images\\empppp - Copie.png")); // NOI18N
+        jLabel5.setMaximumSize(new java.awt.Dimension(900, 239));
+        jLabel5.setMinimumSize(new java.awt.Dimension(900, 239));
+        jLabel5.setPreferredSize(new java.awt.Dimension(900, 239));
+        add(jLabel5);
+        jLabel5.setBounds(80, 0, 840, 230);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Disconnect2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Disconnect2ActionPerformed
         SwingUtilities.getWindowAncestor(this).dispose();
-        JOptionPane.showMessageDialog(null ,"Au revoir!! " );
+        JOptionPane.showMessageDialog(null ,"Au revoir !! " );
         GUI G=new GUI();
         Authentify A=new Authentify();
         A.setSize(1300, 500);
         G.add(A);
-        G.setSize(500, 500);
+        G.setSize(600, 559);
         G.setVisible(true);
     }//GEN-LAST:event_Disconnect2ActionPerformed
 
@@ -478,7 +515,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
 
     private void ButtonAjoutDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAjoutDeptActionPerformed
         if(jTextDept.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "la case est vide débil " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
+            JOptionPane.showMessageDialog(null, "La case est vide débil " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
         }else{
             Admin A=new Admin();
             A.AjouterD(jTextDept.getText());
@@ -492,7 +529,7 @@ public class EspaceAdmin extends javax.swing.JPanel {
         
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             if(jTextDept.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null, "la case est vide débil " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
+                JOptionPane.showMessageDialog(null, "La case est vide débil " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
             }else{
                 Admin A=new Admin();
                 A.AjouterD(jTextDept.getText());
@@ -512,20 +549,17 @@ public class EspaceAdmin extends javax.swing.JPanel {
         String poste=TableEmploye.getModel().getValueAt(TableEmploye.getSelectedRow(),3).toString();
         String dept=TableEmploye.getModel().getValueAt(TableEmploye.getSelectedRow(),4).toString();
         A.ModifierE(Id , poste, nom, prenom, D.getIDdept(dept));
-        JOptionPane.showMessageDialog(null, "Employée modifié avec succée");
+        JOptionPane.showMessageDialog(null, "Employé modifié avec succès");
         updateJTable5_Employe("Id");
         ModifierEmploye.setEnabled(false);
     }//GEN-LAST:event_ModifierEmployeActionPerformed
 
     private void DeleteEmployeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEmployeActionPerformed
         Admin A=new Admin();
-        Dept D=new Dept();
-        if(D.isEmpty((int) TableEmploye.getModel().getValueAt(TableEmploye.getSelectedRow(),0))){
             A.SupprimerE((int) TableEmploye.getModel().getValueAt(TableEmploye.getSelectedRow(),0));
             updateJTable5_Employe("Id");
             ModifierEmploye.setEnabled(false);
             DeleteEmploye.setEnabled(false);
-        }
     }//GEN-LAST:event_DeleteEmployeActionPerformed
 
     private void TableEmployeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableEmployeMouseClicked
@@ -544,9 +578,14 @@ public class EspaceAdmin extends javax.swing.JPanel {
            && !Text_PosteEmploye.getText().isEmpty()
            && !Text_NomEmploye.getText().isEmpty()
            && !Text_PrenomEmploye.getText().isEmpty() ){
-            if(D.getChef(comboBox_departement.getSelectedItem().toString())){
+            if(Text_PosteEmploye.getText().equalsIgnoreCase("Chef")){
+                if(D.getChef(comboBox_departement.getSelectedItem().toString()) ){
                 A.AjouterE(Text_PwdEmploye.getText(), Text_PosteEmploye.getText(), Text_NomEmploye.getText(), Text_PrenomEmploye.getText(),comboBox_departement.getSelectedItem().toString());
             }
+            }else{
+                                A.AjouterE(Text_PwdEmploye.getText(), Text_PosteEmploye.getText(), Text_NomEmploye.getText(), Text_PrenomEmploye.getText(),comboBox_departement.getSelectedItem().toString());
+            }
+            
         }else{
             JOptionPane.showMessageDialog(null ," Une case est vide débil " ,"Warning",JOptionPane.WARNING_MESSAGE); 
         }
@@ -591,9 +630,13 @@ public class EspaceAdmin extends javax.swing.JPanel {
             Rs=St.executeQuery("select ID, Nom, Prenom, Poste, Nomdept from employe , departement where (employe.IDdept=departement.IDdept) and (instr(ID,'"+S+"')<>0 or instr(Nom,'"+S+"')<>0 or instr(Prenom,'"+S+"')<>0 or instr(Nomdept,'"+S+"')<>0 )");
             TableEmploye.setModel(DbUtils.resultSetToTableModel(Rs));
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null ,"Probléme dans la selection des Employées !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null ,"Problème dans la sélection des Employés !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_SearchTextKeyTyped
+
+    private void SearchTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchTextActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -619,6 +662,8 @@ public class EspaceAdmin extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel12;
@@ -628,6 +673,5 @@ public class EspaceAdmin extends javax.swing.JPanel {
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTable jTable6;
     private javax.swing.JTextField jTextDept;
-    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }

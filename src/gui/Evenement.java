@@ -33,12 +33,9 @@ public class Evenement extends javax.swing.JPanel {
         Maconnexion = con.getMaconnexion();
         IdUser=Id;
          this.Plus.setName(X);
-        this.setSize(400,200);
+        this.setSize(576,180);
         Desc.setEditable(false);
         
-    }
-    public String getname(){
-        return "1";
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,95 +57,68 @@ public class Evenement extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         Desc = new javax.swing.JTextArea();
 
-        setBackground(new java.awt.Color(204, 204, 255));
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
-        setMaximumSize(new java.awt.Dimension(500, 500));
-        setPreferredSize(new java.awt.Dimension(300, 300));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
+        setMaximumSize(new java.awt.Dimension(576, 210));
+        setPreferredSize(new java.awt.Dimension(576, 190));
+        setLayout(null);
 
-        Titre.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        Titre.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         Titre.setText("Titre");
+        add(Titre);
+        Titre.setBounds(28, 27, 290, 20);
 
-        Date.setFont(new java.awt.Font("Cambria", 0, 10)); // NOI18N
+        Date.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         Date.setText("Date");
+        add(Date);
+        Date.setBounds(60, 60, 100, 14);
 
-        Lieu.setFont(new java.awt.Font("Cambria", 0, 10)); // NOI18N
+        Lieu.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         Lieu.setText("Lieu");
+        add(Lieu);
+        Lieu.setBounds(230, 60, 150, 14);
 
-        jLabel4.setFont(new java.awt.Font("Cambria", 0, 10)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Georgia", 0, 10)); // NOI18N
         jLabel4.setText("Le : ");
+        add(jLabel4);
+        jLabel4.setBounds(30, 60, 30, 13);
 
-        jLabel5.setFont(new java.awt.Font("Cambria", 0, 10)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Georgia", 0, 10)); // NOI18N
         jLabel5.setText("à : ");
+        add(jLabel5);
+        jLabel5.setBounds(190, 60, 20, 13);
 
+        Plus.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         Plus.setText("+");
         Plus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PlusActionPerformed(evt);
             }
         });
+        add(Plus);
+        Plus.setBounds(400, 150, 130, 30);
 
-        jLabel7.setFont(new java.awt.Font("Cambria", 0, 10)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         jLabel7.setText("Organisé par : ");
+        add(jLabel7);
+        jLabel7.setBounds(30, 140, 89, 30);
 
-        Org.setFont(new java.awt.Font("Cambria", 0, 10)); // NOI18N
+        Org.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         Org.setText("Org");
+        add(Org);
+        Org.setBounds(160, 140, 220, 30);
 
         jScrollPane2.setMaximumSize(new java.awt.Dimension(400, 400));
 
         Desc.setColumns(17);
         Desc.setLineWrap(true);
         Desc.setRows(5);
-        Desc.setCursor(new java.awt.Cursor(java.awt.Cursor.W_RESIZE_CURSOR));
+        Desc.setBorder(null);
+        Desc.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane2.setViewportView(Desc);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Titre)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(11, 11, 11)
-                                .addComponent(Date)
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Lieu))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Org)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Plus)
-                        .addGap(39, 39, 39))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(Titre)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Date)
-                    .addComponent(Lieu)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(Org)
-                    .addComponent(Plus, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        add(jScrollPane2);
+        jScrollPane2.setBounds(28, 74, 506, 68);
     }// </editor-fold>//GEN-END:initComponents
 
     private void PlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlusActionPerformed
@@ -170,8 +140,9 @@ public class Evenement extends javax.swing.JPanel {
             case "-" :E.Desincrire(IdUser, Integer.parseInt(Plus.getName()));break;
             case "Modifier" : CreateEvent Ev = new CreateEvent(IdUser , Plus.getName());
             GUI G = new GUI();
-            G.setSize(300,500);
-            Ev.setSize(300,500);
+            G. setSize(478, 650);
+            Ev.setSize(478, 650);
+;
             Ev.setButton("Modifier");
             Ev.setLabel("Modifier");
             Statement St ;

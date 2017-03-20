@@ -73,7 +73,7 @@ public class Authentify extends javax.swing.JPanel {
 
         jButton1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management1\\Event-management\\images\\users.png")); // NOI18N
-        jButton1.setText("    Utilisateurs");
+        jButton1.setText("    Utilisateur");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -131,8 +131,9 @@ public class Authentify extends javax.swing.JPanel {
         Mdpcon.setBounds(400, 180, 120, 20);
 
         jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarah LOTFI\\Documents\\NetBeansProjects\\Event-management1\\Event-management\\images\\degrade.png")); // NOI18N
+        jLabel5.setPreferredSize(new java.awt.Dimension(620, 229));
         Authentify.add(jLabel5);
-        jLabel5.setBounds(10, -10, 620, 310);
+        jLabel5.setBounds(10, -10, 760, 330);
 
         add(Authentify);
         Authentify.setBounds(-10, 200, 620, 770);
@@ -146,6 +147,11 @@ public class Authentify extends javax.swing.JPanel {
         // TODO add your handling code here:
         Admincon.setVisible(true);
         ConAdmin.setVisible(true);
+        Mdpcon.setVisible(false);
+        Idcon.setVisible(false);
+        jButton2.setVisible(false);
+        jLabel1.setVisible(false);
+        jLabel2.setVisible(false);
     }//GEN-LAST:event_AdminButtonActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -175,9 +181,9 @@ public class Authentify extends javax.swing.JPanel {
                                     JOptionPane.showMessageDialog(null ," Bienvenidos "+Rs1.getString(1)+" !!");
                                     GUI G2=new GUI();
                                     EspaceDirecteur Ed =new EspaceDirecteur(id);
-                                    Ed.setSize(1000, 500);
+                                    Ed.setSize(910, 700);
                                     G2.add(Ed);
-                                    G2.setSize(1000, 500);
+                                    G2.setSize(910, 700); G2.setLocationRelativeTo(null);
                                     G2.setVisible(true);
                             }
                         }else{
@@ -189,7 +195,7 @@ public class Authentify extends javax.swing.JPanel {
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null ,"Probléme dans le requete de connexion  !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null ,"Problème dans le requete de connexion  !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -200,17 +206,17 @@ public class Authentify extends javax.swing.JPanel {
             if(Admincon.getText().equalsIgnoreCase("ADMIN") )
             {
                 SwingUtilities.getWindowAncestor(this).dispose();
-                JOptionPane.showMessageDialog(null ,"Admin connectée avec succée !! " );
+//                JOptionPane.showMessageDialog(null ,"Admin connectée avec succée !! " );
                 GUI G=new GUI();
-                G.setSize(1000, 500);
+                G.setSize(840,695); G.setLocationRelativeTo(null);
                 EspaceAdmin Ea= new EspaceAdmin();
-                Ea.setSize(1000, 500);
+                Ea.setSize(840, 695);
                 G.add(Ea);
                 G.setVisible(true);                
             }
             else
             {
-                JOptionPane.showMessageDialog(null ,"Mot de passe incorrecte !! ","Warning",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null ,"Mot de passe incorrect !! ","Warning",JOptionPane.WARNING_MESSAGE);
             }
         }
         else {JOptionPane.showMessageDialog(null ," Veuillez remplir le champ mot de passe  !! ","Warning",JOptionPane.WARNING_MESSAGE); }
@@ -226,6 +232,8 @@ public class Authentify extends javax.swing.JPanel {
         jButton2.setVisible(true);
         jLabel1.setVisible(true);
         jLabel2.setVisible(true);
+        Admincon.setVisible(false);
+        ConAdmin.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

@@ -72,9 +72,8 @@ public class Dept {
         try{
             St=Maconnexion.createStatement();
             Rs=St.executeQuery("select * from Employe where IDdept="+Id +" ");
-            if(Rs.next()){
-                JOptionPane.showMessageDialog(null, "");
-                int test = JOptionPane.showConfirmDialog(null ,"Attention Ce departement contient des employe, etes vous sur de vouloir continuer  ","Warning",JOptionPane.YES_NO_OPTION);
+            if(Rs.first()){
+                int test = JOptionPane.showConfirmDialog(null ,"Attention !! Ce département contient des employés, êtes-vous sûrs de vouloir continuer ? ","Warning",JOptionPane.YES_NO_OPTION);
                 if(test!=0){
                     return false;
                 }
@@ -82,7 +81,7 @@ public class Dept {
                 return true;
             }
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null ,"Probléme dans la selection des departements dans ComboBox!! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);            
+            JOptionPane.showMessageDialog(null ,"Problème dans la sélection des départements dans ComboBox!! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);            
         }
         return false;
         }

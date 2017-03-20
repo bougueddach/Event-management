@@ -63,7 +63,8 @@ public class listeEvenement extends javax.swing.JPanel {
                     Event.setTitre(Rs1.getString(2));
                     Event.setDate(Rs1.getString(5));
                     Event.setLieu(Rs1.getString(6));
-                    Event.setDesc(Rs1.getString(7));                    
+                    Event.setDesc(Rs1.getString(7));   
+                    Event.setSize(576, 180);
                     Rs2=St2.executeQuery("select Nom , Prenom from employe where ID = '"+Rs1.getString(9)+"'");
                     if(Rs2.first()){Event.setOrg(Rs2.getString(1)+" "+Rs2.getString(2));}
                     Panel.add(Event);
@@ -71,14 +72,15 @@ public class listeEvenement extends javax.swing.JPanel {
                 JScrollPane pane = new JScrollPane(Panel);
                 pane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
                 pane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-                pane.setBounds(50, 30, 350, 150);                
+//                pane.setBounds(0, 0, 576, 360);  
+                pane.setSize(576, 360);
                 this.add(pane);
                 Maconnexion.close();
             }
-            else
-            {
-               JOptionPane.showMessageDialog(null ,"Aucun Evenement a afficher " ,"Warning",JOptionPane.WARNING_MESSAGE);            
-            }                            
+//            else
+//            {
+//               JOptionPane.showMessageDialog(null ,"Aucun Evenement a afficher " ,"Warning",JOptionPane.WARNING_MESSAGE);            
+//            }                            
         
         } catch (SQLException ex) {
             Logger.getLogger(listeEvenement.class.getName()).log(Level.SEVERE, null, ex);

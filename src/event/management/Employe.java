@@ -70,7 +70,7 @@ public class Employe extends Connexion {
                 if(!Rs.first()){
                     JOptionPane.showMessageDialog(null, "L'organisateur que vous avez choisi n'existe pas " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
                 }else if(Rs.getString(1)!="chef"){
-                    JOptionPane.showMessageDialog(null, " Vous n'avez l'autorisation de créer un évenement ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
+                    JOptionPane.showMessageDialog(null, " Vous n'avez pas l'autorisation de créer un évenement ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
                 }else{
                     Rs=St.executeQuery("select * from event where dateEvent='"+date+"' and lieu='"+lieu+"';");
                     if(Rs.next()){
@@ -78,14 +78,14 @@ public class Employe extends Connexion {
                     }else{
                         Rs=St.executeQuery("select * from event where dateEvent='"+date+"' and IDorg='"+IdOrg+"';");
                         if(Rs.next()){
-                            JOptionPane.showMessageDialog(null, "Vous organiser un evenement au meme temps... comment vous allez faire débil ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
+                            JOptionPane.showMessageDialog(null, "Vous organisez un evenement à la  même date ... comment vous allez faire débil ! " ,"Attention !!" , JOptionPane.WARNING_MESSAGE );
                         }else{
                         St.executeUpdate("insert into event values ('"+titre+"' , '"+secteur+"' ,'"+theme+"', '"+date+"' , '"+lieu+"' , '"+desc+"' , '"+type+"' , "+IdOrg+" ); ");
                         }
                     }
                 } 
             }catch(SQLException ex){
-                 JOptionPane.showMessageDialog(null ,"Probléme de création d'évenement  !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+                 JOptionPane.showMessageDialog(null ,"Problème de création d'événement  !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
             }
 	}
 
@@ -109,12 +109,12 @@ public class Employe extends Connexion {
                         if(Rs.first())
                         {
                            St.executeUpdate("insert into participations values ('"+idEv+"','"+idE+"','"+Rs.getDate(1).toString()+"')");
-                           JOptionPane.showMessageDialog(null, "Vous etes inscrit avec succée");
+                           JOptionPane.showMessageDialog(null, "Vous êtes inscrit avec succès");
                         }
                         
                     }
                     else
-                    {JOptionPane.showMessageDialog(null ,"Vous ne pouvez pas paticiper simultanément a 2 événements  !! ","Warning",JOptionPane.WARNING_MESSAGE);}
+                    {JOptionPane.showMessageDialog(null ,"Vous ne pouvez pas paticiper simultanéiment à 2 événements  !! ","Warning",JOptionPane.WARNING_MESSAGE);}
                 }
                 else
                 {JOptionPane.showMessageDialog(null ,"Cet événement ne concerne pas votre département!! ","Warning",JOptionPane.WARNING_MESSAGE);}
@@ -122,7 +122,7 @@ public class Employe extends Connexion {
             else{JOptionPane.showMessageDialog(null ,"Vous vous êtes déjà inscrit pour cet événement !! ","Warning",JOptionPane.WARNING_MESSAGE);}
         }
         catch(SQLException ex) {
-            JOptionPane.showMessageDialog(null ,"Pb dans la requete d'inscription de l'employe !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null ,"Pb dans la requête d'inscription de l'employé !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
         }
         
             
@@ -136,9 +136,10 @@ public class Employe extends Connexion {
              try {    
                 St=Maconnexion.createStatement();
                 St.executeUpdate("delete from participations where IDEvent='"+idEv+"' and IDEmp='"+idE+"';");
+                JOptionPane.showMessageDialog(null, "Vous vous êtes désinscrit avec succès");
              }
              catch (SQLException ex) {
-                 JOptionPane.showMessageDialog(null ,"Pb dans la requete de desinscription de l'employe !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+                 JOptionPane.showMessageDialog(null ,"Pb dans la requête de désinscription de l'employé !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
                 
             }  
 	}
@@ -156,12 +157,12 @@ public class Employe extends Connexion {
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(null ,"Vous n'avez pas le droit d'annuler cet événements  !! ","Warning",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null ,"Vous n'avez pas le droit d'annuler cet événement  !! ","Warning",JOptionPane.WARNING_MESSAGE);
                 }               
                 
              }
              catch (SQLException ex) {
-                 JOptionPane.showMessageDialog(null ,"Pb dans la requete de d'annulation d'evenement !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+                 JOptionPane.showMessageDialog(null ,"Pb dans la requête d'annulation d'événement !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
                 
             }   
 		
@@ -180,11 +181,11 @@ public class Employe extends Connexion {
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(null ,"Vous n'avez pas le droit de modifier cet événements  !! ","Warning",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null ,"Vous n'avez pas le droit de modifier cet événement  !! ","Warning",JOptionPane.WARNING_MESSAGE);
                 }                     
                     
                 }catch(SQLException ex){
-                    JOptionPane.showMessageDialog(null ,"Pb dans la requete de modification de l'employe !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null ,"Pb dans la requête de modification de l'employé !! "+ex.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
                 }
     }
 }
